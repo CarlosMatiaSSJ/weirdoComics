@@ -31,7 +31,7 @@
                     </button>
                 </div>
             </form>
-            <form action="NOMBRERUTA">
+            <form action="articulos">
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary mb-3">
                         Artículos

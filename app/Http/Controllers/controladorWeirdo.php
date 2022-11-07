@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\validadorWeirdo;
 use App\Http\Requests\validadorWeirdoActualizarComic;
+use App\Http\Requests\validadorWeirdoAgregarArticulo;
 use App\Http\Requests\validadorWeirdoAgregarComic;
 
 class controladorWeirdo extends Controller
@@ -18,6 +19,12 @@ class controladorWeirdo extends Controller
     {
         return redirect('comics')->with('comicAgregado', 'comic Recibida');
     }
+
+    public function confirmarArticulo(validadorWeirdoAgregarArticulo $req)
+    {
+        return redirect('articulos')->with('articuloAgregado', 'Articulo Recibida');
+    }
+
     public function confirmarActualizacionComic(validadorWeirdoActualizarComic $req)
     {
         return redirect('comics')->with('actualizacion', 'comic Recibida');
@@ -46,6 +53,16 @@ class controladorWeirdo extends Controller
     public function showEditarComic()
     {
         return view('editarComic');
+    }
+
+    public function showArticulos()
+    {
+        return view('articulos');
+    }
+
+    public function showAgregarArticulo()
+    {
+        return view('agregarArticulo');
     }
 
 }
