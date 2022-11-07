@@ -50,7 +50,7 @@
             <td> $50</td>
             <td>
               <a href="" class="btn btn-warning">Actualizar</a>
-              <a href="" class="btn btn-danger">Borrar</a> 
+              <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>
           <tr>
@@ -59,7 +59,7 @@
             <td> $10</td>
             <td>
               <a href="" class="btn btn-warning">Actualizar</a>
-              <a href="" class="btn btn-danger">Borrar</a> 
+            <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>
           <tr>
@@ -68,7 +68,7 @@
             <td> $5</td>
             <td>
               <a href="" class="btn btn-warning">Actualizar</a>
-              <a href="" class="btn btn-danger">Borrar</a> 
+              <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>
         </tbody>
