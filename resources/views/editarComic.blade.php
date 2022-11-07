@@ -5,7 +5,13 @@
 @section('contenido')
     {{-- SweetAlert --}}
 
-  
+    @if (session()->has('confirmacion'))
+        {!! "<script>Swal.fire(
+                'Correcto!',
+                'Cómic actualizado',
+                'success'
+              )</script>" !!}
+    @endif
 
 
     {{-- Nav --}}
@@ -32,8 +38,8 @@
     <div class="container">
         <div class="col-md-6 offset-md-3">
             <div class="card card-body mt-5">
-              <div class="display-3 mt-3 mb-5 text-center">Nuevo Cómic</div>
-              <form action="validarComic" method="POST">
+              <div class="display-3 mt-3 mb-5 text-center">Actualizar Cómic</div>
+              <form action="validarComicActualizar" method="POST">
                 @csrf
                 <div class="container">
                   <div class="mb-3">
@@ -44,7 +50,7 @@
                      
                       name="txtNOMBRE"
                       class="form-control"
-                      value= "{{old('txtNOMBRE')}}"
+                      value="Comic de prueba 1"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtNOMBRE') }}</p>
                   </div>
@@ -56,7 +62,7 @@
                
                       name="txtEDICION"
                       class="form-control"
-                      value= "{{old('txtEDICION')}}"
+                      value="2030"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtEDICION') }}</p>
                   </div>
@@ -68,7 +74,7 @@
                     
                       name="txtCOMPAÑIA"
                       class="form-control"
-                      value= "{{old('txtCOMPAÑIA')}}"
+                      value="Cómics MX"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtCOMPAÑIA') }}</p>
                   </div>
@@ -80,7 +86,7 @@
                       
                       name="txtCANTIDAD"
                       class="form-control"
-                      value= "{{old('txtCANTIDAD')}}"
+                      value="20"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtCANTIDAD') }}</p>
                   </div>
@@ -89,15 +95,16 @@
                     <input
                       id="precioCompra"
                       type="text"
-                      value= "{{old('txtPRECIOCOMPRA')}}"
+                      
                       name="txtPRECIOCOMPRA"
                       class="form-control"
+                      value="$$$"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtPRECIOCOMPRA') }}</p>
                   </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">
-                            Agregar Cómic
+                            Editar Cómic
                         </button>
                     </div>
                 </div>

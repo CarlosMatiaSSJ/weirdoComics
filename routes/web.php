@@ -18,9 +18,11 @@ Route::get('/', [controladorWeirdo::class, 'showLogin'])->name('apodoLogin');
 Route::get('index', [controladorWeirdo::class, 'showIndex'])->name('apodoIndex');
 Route::get('comics', [controladorWeirdo::class, 'showComics'])->name('apodoComics');
 Route::get('agregarComic', [controladorWeirdo::class, 'showAgregarComic'])->name('apodoAgregarComic');
+Route::get('editarComic', [controladorWeirdo::class, 'showEditarComic'])->name('apodoEditarComic');
 
 
 
 // Envío por post de formularios
 Route::post('validarLogin', [controladorWeirdo::class, 'confirmarFormulario']);
 Route::post('validarComic', [controladorWeirdo::class, 'confirmarComic']);
+Route::post('validarComicActualizar', [controladorWeirdo::class, 'confirmarActualizacionComic']);

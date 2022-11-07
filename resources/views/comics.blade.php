@@ -3,7 +3,24 @@
     Comics
 @stop
 @section('contenido')
+{{-- Actualización de comics --}}
+@if (session()->has('actualizacion'))
+{!! "<script>Swal.fire(
+        'Correcto!',
+        'Cómic actualizado',
+        'success'
+      )</script>" !!}
+@endif
 
+{{-- Agregar Comic --}}
+
+@if (session()->has('comicAgregado'))
+{!! "<script>Swal.fire(
+        'Correcto!',
+        'Cómic agregado',
+        'success'
+      )</script>" !!}
+@endif
 
     {{-- Manejo de errores --}}
 
@@ -49,7 +66,7 @@
             <td> 10 </td>
             <td> $50</td>
             <td>
-              <a href="" class="btn btn-warning">Actualizar</a>
+              <a href="editarComic" class="btn btn-warning">Actualizar</a>
               <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>
@@ -58,7 +75,7 @@
             <td> 30 </td>
             <td> $10</td>
             <td>
-              <a href="" class="btn btn-warning">Actualizar</a>
+              <a href="editarComic" class="btn btn-warning">Actualizar</a>
             <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>
@@ -67,7 +84,7 @@
             <td> 120 </td>
             <td> $5</td>
             <td>
-              <a href="" class="btn btn-warning">Actualizar</a>
+              <a href="editarComic" class="btn btn-warning">Actualizar</a>
               <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>
