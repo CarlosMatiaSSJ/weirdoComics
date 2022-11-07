@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login');
 });
+
+// Envío por post de formularios
+Route::post('validarLogin',[controladorGitHub::class,'confirmarFormulario']);
