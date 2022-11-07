@@ -1,4 +1,4 @@
-@extends('templateSINNAV')
+@extends('template')
 @section('titulo')
     AgregarComic
 @stop
@@ -8,7 +8,7 @@
     @if (session()->has('confirmacion'))
         {!! "<script>Swal.fire(
                 'Correcto!',
-                '¡Bienvenido!',
+                'Cómic agregado',
                 'success'
               )</script>" !!}
     @endif
@@ -34,41 +34,85 @@
 
 
 
-    {{-- Formulario de login --}}
-
-    <div class="display-3 mt-3 mb-5 text-center" style="color: white;"> Weirdo Comics </div>
+    {{-- Formulario agregar cómic --}}
     <div class="container">
-        <div class="card card-body" id="cardLogin">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card card-body" id="cardLogin2">
-                        <form action="validarLogin" method='POST'>
-                            @csrf
-                            <div class="mb-3">
-                                <input type="text" name="txtUsuario" placeholder="Usuario" class="form-control mt-5" />
-                                <p class="text-primary fst-italic">{{ $errors->first('txtUsuario') }}</p>
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" name="txtContraseña" placeholder="Contraseña" class="form-control" />
-                                <p class="text-primary fst-italic">{{ $errors->first('txtContraseña') }}</p>
-                            </div>
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary mb-3">
-                                    Ingresar
-                                </button>
-                            </div>
-                        </form>
+        <div class="col-md-6 offset-md-3">
+            <div class="card card-body mt-5">
+              <div class="display-3 mt-3 mb-5 text-center">Nuevo Cómic</div>
+              <form action="validarComic" method="POST">
+                @csrf
+                <div class="container">
+                  <div class="mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input
+                      id="nombre"
+                      type="text"
+                     
+                      name="txtNOMBRE"
+                      class="form-control"
+                      
+                    />
+                    <p class="text-primary fst-italic">{{ $errors->first('txtNOMBRE') }}</p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="edicion">Edición:</label>
+                    <input
+                      id="edicion"
+                      type="text"
+               
+                      name="txtEDICION"
+                      class="form-control"
+                      
+                    />
+                    <p class="text-primary fst-italic">{{ $errors->first('txtEDICION') }}</p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="compañia">Compañía:</label>
+                    <input
+                      id="compañoa"
+                      type="text"
+                    
+                      name="txtCOMPAÑIA"
+                      class="form-control"
+                      
+                    />
+                    <p class="text-primary fst-italic">{{ $errors->first('txtCOMPAÑIA') }}</p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="cantidad">Cantidad:</label>
+                    <input
+                      id="cantidad"
+                      type="text"
+                      
+                      name="txtCANTIDAD"
+                      class="form-control"
+                      
+                    />
+                    <p class="text-primary fst-italic">{{ $errors->first('txtCANTIDAD') }}</p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="precioCompra">Precio de compra:</label>
+                    <input
+                      id="precioCompra"
+                      type="text"
+                      
+                      name="txtPRECIOCOMPRA"
+                      class="form-control"
+                    />
+                    <p class="text-primary fst-italic">{{ $errors->first('txtPRECIOCOMPRA') }}</p>
+                  </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            Agregar Cómic
+                        </button>
                     </div>
-
                 </div>
-
-                <div class="col-md-6">
-                    <div class="display-3 mt-3 mb-5 text-center" id="bv" style="color: black;"> Bienvenido </div>
-                </div>
+            </form>
+           
             </div>
-
-        </div>
-
+          </div>
     </div>
+
+   
 
 @stop

@@ -14,6 +14,11 @@ class controladorWeirdo extends Controller
         return redirect('/')->with('confirmacion', 'Información Recibida');
     }
 
+    public function confirmarComic(validadorWeirdo $req)
+    {
+        return redirect('agregarComic')->with('confirmacion', 'Información Recibida');
+    }
+
     public function showLogin()
     {
         return view('login');

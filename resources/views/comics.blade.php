@@ -1,4 +1,4 @@
-@extends('templateSINNAV')
+@extends('template')
 @section('titulo')
     Comics
 @stop

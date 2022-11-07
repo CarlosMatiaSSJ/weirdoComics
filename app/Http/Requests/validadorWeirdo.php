@@ -24,8 +24,17 @@ class validadorWeirdo extends FormRequest
     public function rules()
     {
         return [
+            // LOGIN
             'txtUsuario' => 'required | max:20',
-            'txtContraseña' => 'required'
+            'txtContraseña' => 'required',
+
+            // agregarComic
+            'txtNOMBRE' => 'required',
+            'txtEDICION' => 'required',
+            'txtCOMPAÑIA' => 'required',
+            'txtCANTIDAD' => 'required',
+            'txtPRECIOCOMPRA' => 'required',
+            
         ];
     }
 }

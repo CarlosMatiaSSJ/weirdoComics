@@ -23,3 +23,4 @@ Route::get('agregarComic', [controladorWeirdo::class, 'showAgregarComic'])->name
 
 // Envío por post de formularios
 Route::post('validarLogin', [controladorWeirdo::class, 'confirmarFormulario']);
+Route::post('validarComic', [controladorWeirdo::class, 'confirmarComic']);
