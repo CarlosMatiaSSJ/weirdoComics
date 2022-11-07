@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\validadorWeirdo;
-
-
+use App\Http\Requests\validadorWeirdoAgregarComic;
 
 class controladorWeirdo extends Controller
 {
@@ -14,9 +13,9 @@ class controladorWeirdo extends Controller
         return redirect('/')->with('confirmacion', 'Información Recibida');
     }
 
-    public function confirmarComic(validadorWeirdo $req)
+    public function confirmarComic(validadorWeirdoAgregarComic $req)
     {
-        return redirect('agregarComic')->with('confirmacion', 'Información Recibida');
+        return redirect('agregarComic')->with('confirmacion', 'comic Recibida');
     }
 
     public function showLogin()
