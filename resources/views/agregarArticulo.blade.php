@@ -99,7 +99,7 @@
                     <label for="fechaIngreso">Fecha de ingreso:</label>
                     <input
                       id="fechaImgreso"
-                      type="text"
+                      type="date"
                       value= "{{old('txtFECHAINGRESO')}}"
                       name="txtFECHAINGRESO"
                       class="form-control"

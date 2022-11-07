@@ -24,12 +24,12 @@ class validadorWeirdoAgregarArticulo extends FormRequest
     public function rules()
     {
         return [
-            'txtTIPO'=> 'request',
-            'txtMARCA'=> 'request',
-            'txtDESCRIPCION'=> 'request',
-            'txtCANTIDAD'=> 'request',
-            'txtPRECIOCOMPRA'=> 'request',
-            'txtFECHAINGRESO'=> 'request'
+            'txtTIPO'=> 'required',
+            'txtMARCA'=> 'required',
+            'txtDESCRIPCION'=> 'required',
+            'txtCANTIDAD'=> 'required',
+            'txtPRECIOCOMPRA'=> 'required',
+            'txtFECHAINGRESO'=> 'required'
         ];
     }
 }
