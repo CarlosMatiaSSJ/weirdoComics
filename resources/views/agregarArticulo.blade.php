@@ -1,6 +1,6 @@
 @extends('template')
 @section('titulo')
-    AgregarComic
+    Agregar Artículo
 @stop
 @section('contenido')
     {{-- SweetAlert --}}

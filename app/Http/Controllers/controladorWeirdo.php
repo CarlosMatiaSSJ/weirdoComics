@@ -13,7 +13,7 @@ class controladorWeirdo extends Controller
 {
     public function confirmarFormulario(validadorWeirdo $req)
     {
-        return redirect('/')->with('confirmacion', 'Información Recibida');
+        return redirect('index')->with('confirmacion', 'Información Recibida');
     }
 
     public function confirmarComic(validadorWeirdoAgregarComic $req)

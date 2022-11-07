@@ -4,6 +4,14 @@
 @stop
 @section('contenido')
 
+@if (session()->has('confirmacion'))
+{!! "<script>Swal.fire(
+        'Correcto!',
+        'Bienvenido!',
+        'success'
+      )</script>" !!}
+@endif
+
 
     {{-- Manejo de errores --}}
 
