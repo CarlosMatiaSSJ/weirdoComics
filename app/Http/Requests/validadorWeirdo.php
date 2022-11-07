@@ -13,7 +13,7 @@ class validadorWeirdo extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class validadorWeirdo extends FormRequest
     public function rules()
     {
         return [
-            //
+            'txtUsuario'=>'required | max:20',
+            'txtContraseña'=>'required'
         ];
     }
 }

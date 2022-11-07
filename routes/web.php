@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\controladorWeirdo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/',[controladorWeirdo::class,'showLogin'])->name('apodoLogin');  
+
+
 
 // Envío por post de formularios
-Route::post('validarLogin',[controladorGitHub::class,'confirmarFormulario']);
+Route::post('validarLogin',[controladorWeirdo::class,'confirmarFormulario']);
