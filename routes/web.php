@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[controladorWeirdo::class,'showLogin'])->name('apodoLogin');  
+Route::get('/', [controladorWeirdo::class, 'showLogin'])->name('apodoLogin');
+Route::get('index', [controladorWeirdo::class, 'showIndex'])->name('apodoIndex');
+Route::get('comics', [controladorWeirdo::class, 'showComics'])->name('apodoComics');
+Route::get('agregarComic', [controladorWeirdo::class, 'showAgregarComic'])->name('apodoAgregarComic');
 
 
 
 // Envío por post de formularios
-Route::post('validarLogin',[controladorWeirdo::class,'confirmarFormulario']);
+Route::post('validarLogin', [controladorWeirdo::class, 'confirmarFormulario']);
