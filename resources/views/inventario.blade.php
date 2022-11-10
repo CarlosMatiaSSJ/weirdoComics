@@ -61,7 +61,7 @@
             <td>Proveedor:</td>
             <td>Mercancía:</td>
             <td>Contacto:</td>
-            <td>Generar ticket:</td>
+            
           </tr>
         </thead>
     
@@ -70,25 +70,19 @@
             <td>Comics Mx</td>
             <td>Comic de temporada </td>
             <td> 4422565461</td>
-            <td>
-              <a href="" class="btn btn-primary">TICKET</a>
-            </td>
+          
           </tr>
           <tr>
             <td>Comics Sur</td>
             <td> Comic de temporada </td>
             <td> 6546546589 </td>
-            <td>
-              <a href="" class="btn btn-primary">TICKET</a>
-            </td>
+           
           </tr>
           <tr>
             <td> Comics Norte</td>
             <td> Comic de temporada </td>
             <td> 6545646545</td>
-            <td>
-              <a href="" class="btn btn-primary">TICKET</a>
-            </td>
+            
           </tr>
         </tbody>
       </font>

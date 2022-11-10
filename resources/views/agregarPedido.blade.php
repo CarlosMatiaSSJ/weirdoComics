@@ -79,7 +79,7 @@
                     <label for="FechaPedido">Fecha pedido:</label>
                     <input
                       id="fechaPedido"
-                      type="text"
+                      type="date"
                       value= "{{old('txtFechaP')}}"
                       name="txtFechaP"
                       class="form-control"
