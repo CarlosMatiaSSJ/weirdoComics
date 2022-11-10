@@ -1,11 +1,16 @@
 @extends('template')
 @section('titulo')
-    AgregarComic
-@stop
+    EditarComic
+@endsection
 @section('contenido')
     {{-- SweetAlert --}}
-
-  
+    @if (session()->has('actualizacion'))
+        {!! "<script>Swal.fire(
+                'Correcto!',
+                'Artículo actualizado',
+                'success'
+              )</script>" !!}
+    @endif
 
 
     {{-- Nav --}}
@@ -28,13 +33,13 @@
 
 
 
-    {{-- Formulario agregar cómic --}}
+    {{-- Formulario editar artículo --}}
     <div class="container">
         <div class="col-md-6 offset-md-3">
             <div class="card card-body mt-5">
               <font face="Comic Sans MS,arial,verdana">
-              <div class="display-3 mt-3 mb-5 text-center">Nuevo Artículo</div>
-              <form action="validarArticulo" method="POST">
+              <div class="display-3 mt-3 mb-5 text-center"> <small>Actualizar Artículo</small></div>
+              <form action="validarArticuloActualizar" method="POST">
                 @csrf
                 <div class="container">
                   <div class="mb-3">
@@ -45,7 +50,7 @@
                      
                       name="txtTIPO"
                       class="form-control"
-                      value= "{{old('txtTIPO')}}"
+                      value= "Tipo 1"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtTIPO') }}</p>
                   </div>
@@ -57,7 +62,7 @@
                
                       name="txtMARCA"
                       class="form-control"
-                      value= "{{old('txtMARCA')}}"
+                      value= "Marca 1"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtMARCA') }}</p>
                   </div>
@@ -69,7 +74,7 @@
                     
                       name="txtDESCRIPCION"
                       class="form-control"
-                      value= "{{old('txtDESCRIPCION')}}"
+                      value= "Descripción 1"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtDESCRIPCION') }}</p>
                   </div>
@@ -81,7 +86,7 @@
                       
                       name="txtCANTIDAD"
                       class="form-control"
-                      value= "{{old('txtCANTIDAD')}}"
+                      value= "10"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtCANTIDAD') }}</p>
                   </div>
@@ -90,7 +95,7 @@
                     <input
                       id="precioCompra"
                       type="text"
-                      value= "{{old('txtPRECIOCOMPRA')}}"
+                      value= "50"
                       name="txtPRECIOCOMPRA"
                       class="form-control"
                     />
@@ -101,7 +106,7 @@
                     <input
                       id="fechaImgreso"
                       type="date"
-                      value= "{{old('txtFECHAINGRESO')}}"
+                      value= "fecha 1"
                       name="txtFECHAINGRESO"
                       class="form-control"
                     />
@@ -109,7 +114,7 @@
                   </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">
-                            Agregar Artículo
+                            Actualizar Artículo
                         </button>
                     </div>
                 </div>

@@ -1,10 +1,11 @@
 @extends('template')
 @section('titulo')
-    AgregarComic
+    AgregarPedido
 @stop
 @section('contenido')
-    {{-- SweetAlert --}}
+    
 
+    
   
 
 
@@ -33,72 +34,61 @@
         <div class="col-md-6 offset-md-3">
             <div class="card card-body mt-5">
               <font face="Comic Sans MS,arial,verdana">
-              <div class="display-3 mt-3 mb-5 text-center">Nuevo Cómic</div>
-              <form action="validarComic" method="POST">
+              <div class="display-3 mt-3 mb-5 text-center">Nuevo Pedido</div>
+              <form action="validarPedido" method="POST">
                 @csrf
                 <div class="container">
                   <div class="mb-3">
-                    <label for="nombre">Nombre</label>
+                    <label for="proveedor">Proveedor:</label>
                     <input
-                      id="nombre"
+                      id="proveedor"
                       type="text"
                      
-                      name="txtNOMBRE"
+                      name="txtProveedor"
                       class="form-control"
-                      value= "{{old('txtNOMBRE')}}"
+                      value= "{{old('txtProveedor')}}"
                     />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtNOMBRE') }}</p>
+                    <p class="text-primary fst-italic">{{ $errors->first('txtProveedor') }}</p>
                   </div>
                   <div class="mb-3">
-                    <label for="edicion">Edición:</label>
+                    <label for="mercancia">Mercancía:</label>
                     <input
-                      id="edicion"
+                      id="mercancia"
                       type="text"
                
-                      name="txtEDICION"
+                      name="txtMercancia"
                       class="form-control"
-                      value= "{{old('txtEDICION')}}"
+                      value= "{{old('txtMercancia')}}"
                     />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtEDICION') }}</p>
+                    <p class="text-primary fst-italic">{{ $errors->first('txtMercancia') }}</p>
                   </div>
                   <div class="mb-3">
-                    <label for="compañia">Compañía:</label>
+                    <label for="contacto">Contacto:</label>
                     <input
-                      id="compañia"
+                      id="contacto"
                       type="text"
                     
-                      name="txtCOMPAÑIA"
+                      name="txtContacto"
                       class="form-control"
-                      value= "{{old('txtCOMPAÑIA')}}"
+                      value= "{{old('txtContacto')}}"
                     />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtCOMPAÑIA') }}</p>
+                    <p class="text-primary fst-italic">{{ $errors->first('txtContacto') }}</p>
                   </div>
+                  
                   <div class="mb-3">
-                    <label for="cantidad">Cantidad:</label>
+                    <label for="FechaPedido">Fecha pedido:</label>
                     <input
-                      id="cantidad"
+                      id="fechaPedido"
                       type="text"
-                      
-                      name="txtCANTIDAD"
-                      class="form-control"
-                      value= "{{old('txtCANTIDAD')}}"
-                    />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtCANTIDAD') }}</p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="precioCompra">Precio de compra:</label>
-                    <input
-                      id="precioCompra"
-                      type="text"
-                      value= "{{old('txtPRECIOCOMPRA')}}"
-                      name="txtPRECIOCOMPRA"
+                      value= "{{old('txtFechaP')}}"
+                      name="txtFechaP"
                       class="form-control"
                     />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtPRECIOCOMPRA') }}</p>
+                    <p class="text-primary fst-italic">{{ $errors->first('txtFechaP') }}</p>
                   </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">
-                            Agregar Cómic
+                            Agregar Pedido
                         </button>
                     </div>
                 </div>
@@ -110,4 +100,4 @@
 
    
 
-@stop
+@endsection

@@ -1,16 +1,10 @@
 @extends('template')
+ 
 @section('titulo')
-    Menú
+    Menú  
 @stop
-@section('contenido')
 
-@if (session()->has('confirmacion'))
-{!! "<script>Swal.fire(
-        'Correcto!',
-        'Bienvenido!',
-        'success'
-      )</script>" !!}
-@endif
+@section('contenido')
 
 
     {{-- Manejo de errores --}}
@@ -19,19 +13,22 @@
 
 
     {{-- Menú principal --}}
-    <nav class="navbar ">
+    <div class=" mt-2">
+    <nav class="navbar">
         <div class="container-fluid">
           <form>
-            <button class="btn btn-light" type="submit">Punto de venta</button>
+            <a href="pV" class="btn btn-light"> Punto de venta</a>
           </form>
         </div>
     </nav>
+</div>
 
 
 
     <div class="container mt-5">
-        <div class="card card-body mt-3" id="cardMenú">
-            <div class="display-3 mt-3 mb-5 text-center" style="color: black;"> Menú </div>
+        <div class="card card-body mt-3" id="cardMenú" >
+            <div class="display-3 mt-3 mb-5 text-center" style="color: black;"><font face="Comic Sans MS,arial,verdana">
+                Menú </font> </div>
             <form action="comics">
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary mb-3">
@@ -46,14 +43,14 @@
                     </button>
                 </div>
             </form>
-            <form action="NOMBRERUTA">
+            <form action="inventario">
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary mb-3">
                         Inventario
                     </button>
                 </div>
             </form>
-            <form action="NOMBRERUTA">
+            <form action="pedidos">
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary mb-3">
                         Pedidos
