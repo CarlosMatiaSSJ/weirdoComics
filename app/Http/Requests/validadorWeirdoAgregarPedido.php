@@ -26,7 +26,7 @@ class validadorWeirdoAgregarPedido extends FormRequest
         return [
             'txtProveedor' => 'required',
             'txtMercancia' => 'required',
-            'txtContacto' => 'required',
+            'txtContacto' => 'required|numeric|digits_between:10,12',
             'txtFechaP' => 'required',
         ];
     }
