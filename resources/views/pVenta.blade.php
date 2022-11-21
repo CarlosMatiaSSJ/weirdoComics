@@ -101,6 +101,7 @@ Punto de Venta
                 </div>
         </div>  
     </div>
+    <button type="button" class="btn btn-primary col-md-6 mt-4">C</button>
 </div>
 
 
