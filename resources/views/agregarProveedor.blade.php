@@ -34,7 +34,7 @@
             <div class="card card-body mt-5">
               <font face="Comic Sans MS,arial,verdana">
               <div class="display-3 mt-3 mb-5 text-center">Nuevo Proveedor</div>
-              <form action="validarProveedor" method="POST">
+              <form action="{{route('guardarProveedor')}}" method="POST">
                 @csrf
                 <div class="container">
                   <div class="mb-3">

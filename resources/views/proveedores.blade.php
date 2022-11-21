@@ -37,7 +37,7 @@
                 <a class="nav-link active" aria-current="page" href="index">Menú Principal</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="agregarProveedor">Agregar Proveedor</a>
+                <a class="nav-link" href="{{route('agregarProveedor')}}">Agregar Proveedor</a>
               </li>
             </ul>
           </div>

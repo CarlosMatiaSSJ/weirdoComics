@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Http\Requests\validadorWeirdo;
 use App\Http\Requests\validadorWeirdoActualizarComic;
@@ -10,6 +11,7 @@ use App\Http\Requests\validadorWeirdoAgregarArticulo;
 use App\Http\Requests\validadorWeirdoAgregarPedido;
 use App\Http\Requests\validadorWeirdoAgregarComic;
 use App\Http\Requests\validadorWeirdoProveedores;
+
 
 class controladorWeirdo extends Controller
 {

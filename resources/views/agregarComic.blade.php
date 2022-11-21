@@ -99,13 +99,27 @@
                   <div class="mb-3">
                     <label for="fechaIngreso">Fecha de ingreso:</label>
                     <input
-                      id="fechaImgreso"
+                      id="fechaIngreso"
                       type="date"
                       value= "{{old('txtFECHAINGRESO')}}"
                       name="txtFECHAINGRESO"
                       class="form-control"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtFECHAINGRESO') }}</p>
+                  </div>
+                  <div class="mb-3">
+                    <label for="proveedorA">Proveedor:</label>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </div>
+                    <p class="text-primary fst-italic">{{ $errors->first('txtPROVEEDOR') }}</p>
                   </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">
