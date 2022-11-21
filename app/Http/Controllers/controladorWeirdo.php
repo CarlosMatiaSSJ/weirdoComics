@@ -9,9 +9,19 @@ use App\Http\Requests\validadorWeirdoActualizarArticulo;
 use App\Http\Requests\validadorWeirdoAgregarArticulo;
 use App\Http\Requests\validadorWeirdoAgregarPedido;
 use App\Http\Requests\validadorWeirdoAgregarComic;
+use App\Http\Requests\validadorWeirdoProveedores;
 
 class controladorWeirdo extends Controller
 {
+    public function confirmarProveedor(validadorWeirdoProveedores $req)
+    {
+        return redirect('proveedores')->with('confirmacion', 'Información Recibida');
+    }
+    public function confirmarActualizacionProveedor(validadorWeirdoProveedores $req)
+    {
+        return redirect('proveedores')->with('actualizacion', 'comic Recibido');
+    }
+
     public function confirmarFormulario(validadorWeirdo $req)
     {
         return redirect('index')->with('confirmacion', 'Información Recibida');
@@ -80,6 +90,21 @@ class controladorWeirdo extends Controller
     {
         return view('agregarPedido');
     }
+
+    public function showProveedores()
+    {
+        return view('proveedores');
+    }
+
+    public function showAgregarProveedor()
+    {
+        return view('agregarProveedor');
+    }
+    public function showEditarProveedor()
+    {
+        return view('editarProveedor');
+    }
+
 
     public function showPuntoVenta()
     {

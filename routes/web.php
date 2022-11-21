@@ -31,6 +31,10 @@ Route::get('articulos', [controladorWeirdo::class, 'showArticulos'])->name('apod
 Route::get('agregarArticulo', [controladorWeirdo::class, 'showAgregarArticulo'])->name('apodoAgregarArticulo');
 Route::get('editarArticulo', [controladorWeirdo::class, 'showEditarArticulo'])->name('apodoEditarArticulo');
 
+Route::get('proveedores', [controladorWeirdo::class, 'showProveedores'])->name('apodoProveedores');
+Route::get('agregarProveedor', [controladorWeirdo::class, 'showAgregarProveedor'])->name('apodoAgregarProveedor');
+Route::get('editarProveedor', [controladorWeirdo::class, 'showEditarProveedor'])->name('apodoEditarProveedor');
+
 Route::get('pedidos', [controladorWeirdo::class, 'showPedidos'])->name('apodoPedi2');
 Route::get('agregarPedido', [controladorWeirdo::class, 'showAgregarPedido'])->name('apodoAgregarPedido');
 
@@ -46,3 +50,8 @@ Route::post('validarPedido', [controladorWeirdo::class, 'confirmarPedido']);
 
 Route::post('validarComicActualizar', [controladorWeirdo::class, 'confirmarActualizacionComic']);
 Route::post('validarArticuloActualizar', [controladorWeirdo::class, 'confirmarActualizacionArticulo']);
+
+// Proveedores
+Route::post('validarProveedor', [controladorWeirdo::class, 'confirmarProveedor']);
+Route::post('validarActualizacionProveedor', [controladorWeirdo::class, 'confirmarActualizacionProveedor']);
+
