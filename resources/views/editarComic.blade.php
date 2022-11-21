@@ -103,6 +103,17 @@
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtPRECIOCOMPRA') }}</p>
                   </div>
+                  <div class="mb-3">
+                    <label for="fechaIngreso">Fecha de ingreso:</label>
+                    <input
+                      id="fechaImgreso"
+                      type="date"
+                      value= "{{old('txtFECHAINGRESO')}}"
+                      name="txtFECHAINGRESO"
+                      class="form-control"
+                    />
+                    <p class="text-primary fst-italic">{{ $errors->first('txtFECHAINGRESO') }}</p>
+                  </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">
                             Editar Cómic
