@@ -43,7 +43,7 @@
                     </button>
                 </div>
             </form>
-            <form action="proveedores">
+            <form action="{{route('proveedores')}}">
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary mb-3">
                         Proveedores

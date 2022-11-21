@@ -17,7 +17,8 @@ class controladorBDProveedores extends Controller
      */
     public function index()
     {
-        //
+        $consultaProveedores = DB::table('proveedores')->get();
+        return view('proveedores', compact('consultaProveedores'));
     }
 
     /**
@@ -41,7 +42,7 @@ class controladorBDProveedores extends Controller
         DB::table('proveedores')->insert(["nombreProveedores" => $request->input('txtNOMBRE'),
         "contactoProveedores" => $request->input('txtCONTACTO')
     ]);
-    return redirect('proveedores')->with('confirmacion','confirmarProveedor');
+    return redirect('proveedores/index')->with('confirmacion','confirmarProveedor');
     }
 
     /**

@@ -49,32 +49,39 @@
 
     <div class="display-3 mb-5 text-center mt-5" style="color: white"><font face="Comic Sans MS,arial,verdana">Proveedores</div>
 
+    
+
 <div class="container">
+  
     <table class="table table-success table-striped mt-3">
         <thead>
           <tr>
             <td>Proveedor:</td>
             <td>Contacto:</td>
-            <td>Ver productos:</td>
+            <td></td>
             <td></td>
           </tr>
         </thead>
-    
+        @foreach($consultaProveedores as $proveedores)
         <tbody>
+         
           <tr>
-            <td>Proveedor</td>
-            <td> 1111111 </td>
+            <td>{{$proveedores->nombreProveedores}}</td>
+            <td>{{$proveedores->contactoProveedores}} </td>
             <td>
-              <button onclick="borrar()" class="btn btn-danger"> Ver Productos </button>
+              <button class="btn btn-danger"> Ver Productos </button>
             </td>
             <td>
-              <a href="editarProveedor" class="btn btn-warning">Actualizar</a>
+              <a href="editarProveedor/{{$proveedores->idProveedores}}" class="btn btn-warning">Actualizar</a>
               <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>
+         
         </tbody>
+       @endforeach
       </font>
     </table>
+  
 </div>
 
 @stop

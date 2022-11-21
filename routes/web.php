@@ -53,7 +53,7 @@ Route::post('validarComicActualizar', [controladorWeirdo::class, 'confirmarActua
 Route::post('validarArticuloActualizar', [controladorWeirdo::class, 'confirmarActualizacionArticulo']);
 
 // Proveedores
-Route::get('proveedores', [controladorWeirdo::class, 'showProveedores'])->name('proveedores');
+Route::get('proveedores/index', [controladorBDProveedores::class, 'index'])->name('proveedores');
 Route::get('proveedores/agregar', [controladorBDProveedores::class, 'create'])->name('agregarProveedor');
 Route::post('proveedores/create', [controladorBDProveedores::class, 'store'])->name('guardarProveedor');
 
