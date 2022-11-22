@@ -34,7 +34,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index">Menú Principal</a>
+                <a class="nav-link active" aria-current="page" href="{{route('index')}}">Menú Principal</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{route('agregarProveedor')}}">Agregar Proveedor</a>
@@ -73,7 +73,7 @@
             </td>
             <td>
               <a href="editarProveedor/{{$proveedores->idProveedores}}" class="btn btn-warning">Actualizar</a>
-              <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
+              <button onclick="borrarProveedor()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>
          

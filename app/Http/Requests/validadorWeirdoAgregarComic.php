@@ -30,7 +30,8 @@ class validadorWeirdoAgregarComic extends FormRequest
               'txtCOMPAÑIA' => 'required',
               'txtCANTIDAD' => 'required|numeric',
               'txtPRECIOCOMPRA' => 'required|numeric',
-              'txtFECHAINGRESO'=> 'required'
+              'txtFECHAINGRESO'=> 'required',
+              'txtPROVEEDOR'=>'required'
         ];
     }
 }

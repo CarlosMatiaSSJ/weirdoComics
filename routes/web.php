@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\controladorBDComics;
 use App\Http\Controllers\controladorWeirdo;
 use App\Http\Controllers\controladorBDProveedores;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,7 @@ Route::get('addArt', function () {
 */
 
 Route::get('/', [controladorWeirdo::class, 'showLogin'])->name('apodoLogin');
-Route::get('index', [controladorWeirdo::class, 'showIndex'])->name('apodoIndex');
+Route::get('index', [controladorWeirdo::class, 'showIndex'])->name('index');
 Route::get('pV', [controladorWeirdo::class, 'showPuntoVenta'])->name('apodoPuntoV');
 
 Route::get('comics', [controladorWeirdo::class, 'showComics'])->name('apodoComics');
@@ -57,7 +58,12 @@ Route::get('proveedores/index', [controladorBDProveedores::class, 'index'])->nam
 Route::get('proveedores/agregar', [controladorBDProveedores::class, 'create'])->name('agregarProveedor');
 Route::post('proveedores/create', [controladorBDProveedores::class, 'store'])->name('guardarProveedor');
 
-
 Route::post('validarProveedor', [controladorWeirdo::class, 'confirmarProveedor']);
 Route::post('validarActualizacionProveedor', [controladorWeirdo::class, 'confirmarActualizacionProveedor']);
+
+//Cómics
+Route::get('cómics/index', [controladorBDComics::class, 'index'])->name('comics');
+Route::get('cómics/agregar', [controladorBDComics::class, 'create'])->name('agregarComic');
+Route::post('cómics/create', [controladorBDComics::class, 'store'])->name('guardarComic');
+
 

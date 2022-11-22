@@ -37,7 +37,7 @@
                 <a class="nav-link active" aria-current="page" href="index">Menú Principal</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="agregarComic">Agregar Comic</a>
+                <a class="nav-link" href="{{route('agregarComic')}}">Agregar Comic</a>
               </li>
             </ul>
           </div>
