@@ -16,7 +16,8 @@ class controladorBDComics extends Controller
      */
     public function index()
     {
-        //
+        $consultaComics = DB::table('comics')->get();
+        return view('comics', compact('consultaComics'));
     }
 
     /**
@@ -49,7 +50,7 @@ class controladorBDComics extends Controller
         "fechaIngresoComic"=>$request->input('txtFECHAINGRESO'),
         "idProveedor_detalle"=>$request->input('txtPROVEEDOR')
     ]);
-    return redirect('cómics/index')->with('confirmacion','confirmarComic');
+    return redirect('cómics/index')->with('comicAgregado','confirmarComic');
     }
 
     /**

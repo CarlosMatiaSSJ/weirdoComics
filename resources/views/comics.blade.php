@@ -55,40 +55,25 @@
           <tr>
             <td>Comic:</td>
             <td>Existencia:</td>
-            <td>Precio:</td>
+            <td>Precio de Venta:</td>
             <td>Acción:</td>
           </tr>
         </thead>
-    
+        @foreach ($consultaComics as $comics)
+            
+        
         <tbody>
           <tr>
-            <td>Comic 1</td>
-            <td> 10 </td>
-            <td> $50</td>
-            <td>
-              <a href="editarComic" class="btn btn-warning">Actualizar</a>
-              <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Comic 2</td>
-            <td> 30 </td>
-            <td> $10</td>
-            <td>
-              <a href="editarComic" class="btn btn-warning">Actualizar</a>
-            <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Comic 3</td>
-            <td> 120 </td>
-            <td> $5</td>
+            <td>{{$comics->nombreComic}}</td>
+            <td>{{$comics->cantidadComic}}  </td>
+            <td>{{$comics->precioVentaComic}} </td>
             <td>
               <a href="editarComic" class="btn btn-warning">Actualizar</a>
               <button onclick="borrar()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>
         </tbody>
+        @endforeach
       </font>
     </table>
 </div>
