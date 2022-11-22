@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\controladorBDArticulos;
 use App\Http\Controllers\controladorBDComics;
 use App\Http\Controllers\controladorWeirdo;
 use App\Http\Controllers\controladorBDProveedores;
@@ -65,5 +66,10 @@ Route::post('validarActualizacionProveedor', [controladorWeirdo::class, 'confirm
 Route::get('cómics/index', [controladorBDComics::class, 'index'])->name('comics');
 Route::get('cómics/agregar', [controladorBDComics::class, 'create'])->name('agregarComic');
 Route::post('cómics/create', [controladorBDComics::class, 'store'])->name('guardarComic');
+
+//Artículos
+Route::get('artículos/index', [controladorBDArticulos::class, 'index'])->name('articulos');
+Route::get('artículos/agregar', [controladorBDArticulos::class, 'create'])->name('agregarArticulo');
+Route::post('artículos/create', [controladorBDArticulos::class, 'store'])->name('guardarArticulo');
 
 

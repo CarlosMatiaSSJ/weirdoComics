@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\validadorWeirdoAgregarComic;
+use App\Http\Requests\validadorWeirdoAgregarArticulo;
 use Illuminate\Http\Request;
 use DB;
-use Carbon\Carbon;
 
-class controladorBDComics extends Controller
+class controladorBDArticulos extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class controladorBDComics extends Controller
      */
     public function index()
     {
-        $consultaComics = DB::table('comics')->get();
-        return view('comics', compact('consultaComics'));
+        $consultaArticulos = DB::table('articulos')->get();
+        return view('articulos', compact('consultaArticulos'));
     }
 
     /**
@@ -27,9 +26,9 @@ class controladorBDComics extends Controller
      */
     public function create()
     {
-        //Consulta de proveedores para mostrarlos en combobox 
-        $consultaProveedores = DB::table('proveedores')->get();
-        return view('agregarComic', compact('consultaProveedores'));
+         //Consulta de proveedores para mostrarlos en combobox 
+         $consultaProveedores = DB::table('proveedores')->get();
+         return view('agregarArticulo', compact('consultaProveedores'));
     }
 
     /**
@@ -38,19 +37,19 @@ class controladorBDComics extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(validadorWeirdoAgregarComic $request)
+    public function store(validadorWeirdoAgregarArticulo $request)
     {
         $pv = 1.4;
-        DB::table('comics')->insert(["nombreComic" => $request->input('txtNOMBRE'),
-        "edicionComic"=>$request->input('txtEDICION'),
-        "compañiaComic"=>$request->input('txtCOMPAÑIA'),
-        "cantidadComic"=>$request->input('txtCANTIDAD'),
-        "precioCompraComic"=>$request->input('txtPRECIOCOMPRA'),
-        "precioVentaComic"=>$request->input('txtPRECIOCOMPRA')*$pv,
-        "fechaIngresoComic"=>$request->input('txtFECHAINGRESO'),
-        "idProveedor_detalle"=>$request->input('txtPROVEEDOR')
+        DB::table('articulos')->insert(["tipoArticulo" => $request->input('txtTIPO'),
+        "marcaArticulo"=>$request->input('txtMARCA'),
+        "descripcionArticulo"=>$request->input('txtDESCRIPCION'),
+        "cantidadArticulo"=>$request->input('txtCANTIDAD'),
+        "precioCompraArticulo"=>$request->input('txtPRECIOCOMPRA'),
+        "precioVentaArticulo"=>$request->input('txtPRECIOCOMPRA')*$pv,
+        "fechaIngresoArticulo"=>$request->input('txtFECHAINGRESO'),
+        "idProveedor_detalleArticulo"=>$request->input('txtPROVEEDOR')
     ]);
-    return redirect('cómics/index')->with('comicAgregado','confirmarComic');
+    return redirect('artículos/index')->with('articuloAgregado','confirmarArtículo');
     }
 
     /**

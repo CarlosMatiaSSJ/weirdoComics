@@ -16,7 +16,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index">Menú Principal</a>
+                <a class="nav-link active" aria-current="page" href="{{route('index')}}">Menú Principal</a>
               </li>
             </ul>
           </div>
@@ -34,7 +34,7 @@
             <div class="card card-body mt-5">
               <font face="Comic Sans MS,arial,verdana">
               <div class="display-3 mt-3 mb-5 text-center">Nuevo Artículo</div>
-              <form action="validarArticulo" method="POST">
+              <form action="{{route('guardarArticulo')}}" method="POST">
                 @csrf
                 <div class="container">
                   <div class="mb-3">
@@ -107,6 +107,19 @@
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtFECHAINGRESO') }}</p>
                   </div>
+                  <div class="mb-3">
+                    <label for="proveedorA">Proveedor:</label>
+                    
+                    <select class="form-select" aria-label="Default select example" name="txtPROVEEDOR">
+                      <option selected disabled></option>
+                      @foreach ($consultaProveedores as $proveedor)
+                      <option value="{{$proveedor->idProveedores}}">{{$proveedor->nombreProveedores}}</option>
+                      @endforeach
+                    </select>
+                    
+
+                    <p class="text-primary fst-italic">{{ $errors->first('txtPROVEEDOR') }}</p>
+                </div>
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">
                             Agregar Artículo
