@@ -29,14 +29,14 @@
         <div class="card card-body mt-3" id="cardMenú" >
             <div class="display-3 mt-3 mb-5 text-center" style="color: black;"><font face="Comic Sans MS,arial,verdana">
                 Menú </font> </div>
-            <form action="comics">
+            <form action="{{route('comics')}}">
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary mb-3">
                         Comics
                     </button>
                 </div>
             </form>
-            <form action="articulos">
+            <form action="{{route('articulos')}}">
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary mb-3">
                         Artículos

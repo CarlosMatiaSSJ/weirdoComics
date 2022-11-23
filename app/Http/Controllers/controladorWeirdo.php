@@ -11,6 +11,7 @@ use App\Http\Requests\validadorWeirdoAgregarArticulo;
 use App\Http\Requests\validadorWeirdoAgregarPedido;
 use App\Http\Requests\validadorWeirdoAgregarComic;
 use App\Http\Requests\validadorWeirdoProveedores;
+use DB;
 
 
 class controladorWeirdo extends Controller
@@ -61,7 +62,10 @@ class controladorWeirdo extends Controller
 
     public function showInventario()
     {
-        return view('inventario');
+        $consultaArticulos = DB::table('articulos')->get();
+        $consultaComics = DB::table('comics')->get();
+        return view('inventario', compact('consultaArticulos','consultaComics'));
+        
     }
 
     public function showIndex()
