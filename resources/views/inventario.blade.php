@@ -51,8 +51,8 @@
 
         {{-- Barra búsqueda --}}
         <form class="d-flex float-right" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-light" type="submit">Search</button>
+          <input class="form-control me-2" type="search" placeholder="Filtrar" aria-label="Search" name="filtrar" value="{{$filtrar}}">
+          <button class="btn btn-light" type="submit">Filtrar</button>
         </form>
 
 

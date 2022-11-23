@@ -60,11 +60,12 @@ class controladorWeirdo extends Controller
     }
 
 
-    public function showInventario()
+    public function showInventario(Request $request)
     {
-        $consultaArticulos = DB::table('articulos')->get();
-        $consultaComics = DB::table('comics')->get();
-        return view('inventario', compact('consultaArticulos','consultaComics'));
+        $filtrar = $request->get('filtrar');
+        $consultaArticulos = DB::table('articulos')->where('descripcionArticulo','like','%'.$filtrar.'%')->get();
+        $consultaComics = DB::table('comics')->where('nombreComic','like','%'.$filtrar.'%')->get();
+        return view('inventario', compact('consultaArticulos','consultaComics','filtrar'));
         
     }
 
