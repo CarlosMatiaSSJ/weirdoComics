@@ -41,7 +41,8 @@ class controladorBDComics extends Controller
     public function store(validadorWeirdoAgregarComic $request)
     {
         $pv = 1.4;
-        DB::table('comics')->insert(["nombreComic" => $request->input('txtNOMBRE'),
+        DB::table('comics')->insert([
+        "nombreComic" => $request->input('txtNOMBRE'),
         "edicionComic"=>$request->input('txtEDICION'),
         "compañiaComic"=>$request->input('txtCOMPAÑIA'),
         "cantidadComic"=>$request->input('txtCANTIDAD'),

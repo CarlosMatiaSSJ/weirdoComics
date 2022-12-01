@@ -24,8 +24,13 @@ class validadorWeirdoProveedores extends FormRequest
     public function rules()
     {
         return [
-            'txtNOMBRE'=> 'required',
-            'txtCONTACTO' => 'required'
+            'empresa'=> 'required',
+            'direccion' => 'required',
+            'pais'=> 'required',
+            'contacto' => 'required',
+            'noFijo'=> 'required',
+            'noCelular' => 'required',
+            'correo'=> 'required',
         ];
     }
 }

@@ -39,8 +39,15 @@ class controladorBDProveedores extends Controller
      */
     public function store(validadorWeirdoProveedores $request)
     {
-        DB::table('proveedores')->insert(["nombreProveedores" => $request->input('txtNOMBRE'),
-        "contactoProveedores" => $request->input('txtCONTACTO')
+        DB::table('proveedores')->insert([
+            "empresaProveedor" => $request->input('empresa'),
+            "direccionProveedor" => $request->input('direccion'),
+            "paisProveedor" => $request->input('pais'),
+            "contactoProveedor" => $request->input('contacto'),
+            "noFijoProveedor" => $request->input('noFijo'),
+            "noCelularProveedor" => $request->input('noCelular'),
+            "correoProveedor" => $request->input('correo')
+
     ]);
     return redirect('proveedores/index')->with('confirmacion','confirmarProveedor');
     }

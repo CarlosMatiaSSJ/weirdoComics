@@ -66,13 +66,13 @@
         <tbody>
          
           <tr>
-            <td>{{$proveedores->nombreProveedores}}</td>
-            <td>{{$proveedores->contactoProveedores}} </td>
+            <td>{{$proveedores->empresaProveedor}}</td>
+            <td>{{$proveedores->contactoProveedor}} </td>
             <td>
               <button class="btn btn-danger"> Ver Productos </button>
             </td>
             <td>
-              <a href="editarProveedor/{{$proveedores->idProveedores}}" class="btn btn-warning">Actualizar</a>
+              <a href="editarProveedor/{{$proveedores->idProveedor}}" class="btn btn-warning">Actualizar</a>
               <button onclick="borrarProveedor()" class="btn btn-danger"> Borrar </button>
             </td>
           </tr>

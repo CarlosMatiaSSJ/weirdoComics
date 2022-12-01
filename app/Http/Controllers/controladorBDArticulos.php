@@ -40,7 +40,8 @@ class controladorBDArticulos extends Controller
     public function store(validadorWeirdoAgregarArticulo $request)
     {
         $pv = 1.4;
-        DB::table('articulos')->insert(["tipoArticulo" => $request->input('txtTIPO'),
+        DB::table('articulos')->insert([
+        "tipoArticulo" => $request->input('txtTIPO'),
         "marcaArticulo"=>$request->input('txtMARCA'),
         "descripcionArticulo"=>$request->input('txtDESCRIPCION'),
         "cantidadArticulo"=>$request->input('txtCANTIDAD'),
