@@ -29,7 +29,8 @@ class validadorWeirdoAgregarArticulo extends FormRequest
             'txtDESCRIPCION'=> 'required',
             'txtCANTIDAD'=> 'required|numeric',
             'txtPRECIOCOMPRA'=> 'required|numeric',
-            'txtFECHAINGRESO'=> 'required'
+            'txtFECHAINGRESO'=> 'required',
+            'txtPROVEEDOR'=>'required'
         ];
     }
 }
