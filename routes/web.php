@@ -58,18 +58,26 @@ Route::post('validarArticuloActualizar', [controladorWeirdo::class, 'confirmarAc
 Route::get('proveedores/index', [controladorBDProveedores::class, 'index'])->name('proveedores');
 Route::get('proveedores/agregar', [controladorBDProveedores::class, 'create'])->name('agregarProveedor');
 Route::post('proveedores/create', [controladorBDProveedores::class, 'store'])->name('guardarProveedor');
+Route::PUT('proveedores/update/{id}', [controladorBDProveedores::class, 'update'])->name('updateProveedor');
+Route::DELETE('proveedores/destroy/{id}', [controladorBDProveedores::class, 'destroy'])->name('destroyProveedor');
 
-Route::post('validarProveedor', [controladorWeirdo::class, 'confirmarProveedor']);
-Route::post('validarActualizacionProveedor', [controladorWeirdo::class, 'confirmarActualizacionProveedor']);
+
 
 //Cómics
 Route::get('cómics/index', [controladorBDComics::class, 'index'])->name('comics');
 Route::get('cómics/agregar', [controladorBDComics::class, 'create'])->name('agregarComic');
 Route::post('cómics/create', [controladorBDComics::class, 'store'])->name('guardarComic');
 
+Route::PUT('cómics/update/{id}', [controladorBDComics::class, 'update'])->name('updateComic');
+Route::DELETE('cómics/destroy/{id}', [controladorBDComics::class, 'destroy'])->name('destroyComic');
+
+
+
 //Artículos
 Route::get('artículos/index', [controladorBDArticulos::class, 'index'])->name('articulos');
 Route::get('artículos/agregar', [controladorBDArticulos::class, 'create'])->name('agregarArticulo');
 Route::post('artículos/create', [controladorBDArticulos::class, 'store'])->name('guardarArticulo');
-
+Route::get('artículos/editar/{id}', [controladorBDArticulos::class, 'edit'])->name('editarArticulo');
+Route::PUT('artículos/update/{id}', [controladorBDArticulos::class, 'update'])->name('updateArticulo');
+Route::DELETE('artículos/destroy/{id}', [controladorBDArticulos::class, 'destroy'])->name('destroyArticulo');
 

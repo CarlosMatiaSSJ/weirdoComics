@@ -16,8 +16,9 @@ class controladorBDComics extends Controller
      */
     public function index()
     {
+        $consultaProveedores = DB::table('proveedores')->get();
         $consultaComics = DB::table('comics')->get();
-        return view('comics', compact('consultaComics'));
+        return view('comics', compact('consultaComics'), compact('consultaProveedores'));
     }
 
     /**
@@ -85,7 +86,18 @@ class controladorBDComics extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pv = 1.4;
+        DB::table('comics')->where('idComic', $id)->update([
+        "nombreComic" => $request->input('txtNOMBRE'),
+        "edicionComic"=>$request->input('txtEDICION'),
+        "compañiaComic"=>$request->input('txtCOMPAÑIA'),
+        "cantidadComic"=>$request->input('txtCANTIDAD'),
+        "precioCompraComic"=>$request->input('txtPRECIOCOMPRA'),
+        "precioVentaComic"=>$request->input('txtPRECIOCOMPRA')*$pv,
+        "fechaIngresoComic"=>$request->input('txtFECHAINGRESO'),
+        "idProveedor_detalle"=>$request->input('txtPROVEEDOR')
+        ]);
+        return redirect('cómics/index')->with('actualizacion','abc');
     }
 
     /**
@@ -96,6 +108,7 @@ class controladorBDComics extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('comics')->where('idComic',$id)->delete();
+        return redirect('cómics/index')->with('eliminacion','abc');
     }
 }

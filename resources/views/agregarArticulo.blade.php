@@ -113,7 +113,7 @@
                     <select class="form-select" aria-label="Default select example" name="txtPROVEEDOR">
                       <option selected disabled></option>
                       @foreach ($consultaProveedores as $proveedor)
-                      <option value="{{$proveedor->idProveedores}}">{{$proveedor->nombreProveedores}}</option>
+                      <option value="{{$proveedor->idProveedor}}">{{$proveedor->empresaProveedor}}</option>
                       @endforeach
                     </select>
                     

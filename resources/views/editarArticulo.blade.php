@@ -1,6 +1,6 @@
 @extends('template')
 @section('titulo')
-    EditarComic
+    editarArticulo
 @endsection
 @section('contenido')
     {{-- SweetAlert --}}
@@ -39,8 +39,9 @@
             <div class="card card-body mt-5">
               <font face="Comic Sans MS,arial,verdana">
               <div class="display-3 mt-3 mb-5 text-center"> <small>Actualizar Artículo</small></div>
-              <form action="validarArticuloActualizar" method="POST">
-                @csrf
+              <form action="{{route('updateArticulo',$consultaID->idArticulo)}}" method="POST">
+                @csrf            
+                {!!method_field('PUT')!!}
                 <div class="container">
                   <div class="mb-3">
                     <label for="tipo">Tipo</label>
@@ -50,7 +51,7 @@
                      
                       name="txtTIPO"
                       class="form-control"
-                      value= "Tipo 1"
+                      value= "{{$consultaID->tipoArticulo}}"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtTIPO') }}</p>
                   </div>
@@ -62,7 +63,7 @@
                
                       name="txtMARCA"
                       class="form-control"
-                      value= "Marca 1"
+                      value= "{{$consultaID->marcaArticulo}}"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtMARCA') }}</p>
                   </div>
@@ -74,7 +75,7 @@
                     
                       name="txtDESCRIPCION"
                       class="form-control"
-                      value= "Descripción 1"
+                      value= "{{$consultaID->descripcionArticulo}}"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtDESCRIPCION') }}</p>
                   </div>
@@ -86,7 +87,7 @@
                       
                       name="txtCANTIDAD"
                       class="form-control"
-                      value= "10"
+                      value= "{{$consultaID->cantidadArticulo}}"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtCANTIDAD') }}</p>
                   </div>
@@ -95,7 +96,7 @@
                     <input
                       id="precioCompra"
                       type="text"
-                      value= "50"
+                      value= "{{$consultaID->precioCompraArticulo}}"
                       name="txtPRECIOCOMPRA"
                       class="form-control"
                     />
@@ -106,17 +107,32 @@
                     <input
                       id="fechaImgreso"
                       type="date"
-                      value= "fecha 1"
+                      value= "{{$consultaID->fechaIngresoArticulo}}"
                       name="txtFECHAINGRESO"
                       class="form-control"
                     />
                     <p class="text-primary fst-italic">{{ $errors->first('txtFECHAINGRESO') }}</p>
                   </div>
+                  <div class="mb-3">
+                    <label for="proveedorA">Proveedor:</label>
+                    
+                    <select class="form-select" aria-label="Default select example" name="txtPROVEEDOR">
+                      <option selected disabled></option>
+                      @foreach ($consultaProveedores as $proveedor)
+                      <option value="{{$proveedor->idProveedor}}">{{$proveedor->empresaProveedor}}</option>
+                      @endforeach
+                    </select>
+                    
+
+                    <p class="text-primary fst-italic">{{ $errors->first('txtPROVEEDOR') }}</p>
+                </div>
+
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">
                             Actualizar Artículo
                         </button>
                     </div>
+                   
                 </div>
             </form>
           </font>

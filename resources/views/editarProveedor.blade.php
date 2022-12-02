@@ -1,79 +1,128 @@
-@extends('template')
-@section('titulo')
-    Agregar Proveedor
-@stop
-@section('contenido')
-    {{-- SweetAlert --}}
-
-  
-
-
-    {{-- Nav --}}
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index"><img id="icono" src="{{asset('imgs/comic.png')}}"></a>
-          
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index">Menú Principal</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-    {{-- Manejo de errores --}}
+<!-- Modal -->
+<div class="modal fade" id="editarProveedor{{$proveedores->idProveedor}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Proveedor</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
 
 
+        <form action="{{route('updateProveedor',$proveedores->idProveedor)}}" method="POST">
+          @csrf
+          @method('put')
+          <div class="container">
 
-
-    {{-- Formulario agregar cómic --}}
-    <div class="container">
-        <div class="col-md-6 offset-md-3">
-            <div class="card card-body mt-5">
-              <font face="Comic Sans MS,arial,verdana">
-              <div class="display-3 mt-3 mb-5 text-center">Nuevo Proveedor</div>
-              <form action="validarActualizacionProveedor" method="POST">
-                @csrf
-                <div class="container">
-                  <div class="mb-3">
-                    <label for="nombre">Nombre</label>
-                    <input
-                      id="nombre"
-                      type="text"
-                     
-                      name="txtNOMBRE"
-                      class="form-control"
-                      value= "aaaa"
-                    />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtNOMBRE') }}</p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="contacto">Contacto:</label>
-                    <input
-                      id="contacto"
-                      type="number"
+            <div class="mb-3">
+              <label for="empresa">Empresa:</label>
+              <input
+                id="empresa"
+                type="text"
                
-                      name="txtCONTACTO"
-                      class="form-control"
-                      value= "11111"
-                    />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtCONTACTO') }}</p>
-                  </div>
-                  
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary">
-                            Actualizar Proveedor
-                        </button>
-                    </div>
-                </div>
-            </form>
-          </font>
+                name="empresa"
+                class="form-control"
+                value= "{{$proveedores->empresaProveedor}}"
+              />
+              <p class="text-primary fst-italic">{{ $errors->first('empresa') }}</p>
             </div>
+
+
+            <div class="mb-3">
+              <label for="direccion">Dirección:</label>
+              <input
+                id="direccion"
+                type="text"
+         
+                name="direccion"
+                class="form-control"
+                value= "{{$proveedores->direccionProveedor}}"
+              />
+              <p class="text-primary fst-italic">{{ $errors->first('direccion') }}</p>
+            </div>
+
+            <div class="mb-3">
+              <label for="pais">País:</label>
+              <input
+                id="pais"
+                type="text"
+               pais
+                name="pais"
+                class="form-control"
+                value= "{{$proveedores->paisProveedor}}"
+              />
+              <p class="text-primary fst-italic">{{ $errors->first('pais') }}</p>
+            </div>
+
+            <div class="mb-3">
+              <label for="contacto">Contacto:</label>
+              <input
+                id="contacto"
+                type="text"
+               
+                name="contacto"
+                class="form-control"
+                value= "{{$proveedores->contactoProveedor}}"
+              />
+              <p class="text-primary fst-italic">{{ $errors->first('contacto') }}</p>
+            </div>
+
+
+            <div class="mb-3">
+              <label for="noFijo">No. Fijo:</label>
+              <input
+                id="noFijo"
+                type="text"
+               
+                name="noFijo"
+                class="form-control"
+                value= "{{$proveedores->noFijoProveedor}}"
+              />
+              <p class="text-primary fst-italic">{{ $errors->first('noFijo') }}</p>
+            </div>
+
+
+            <div class="mb-3">
+              <label for="noCelular">No. Celular:</label>
+              <input
+                id="noCelular"
+                type="text"
+               
+                name="noCelular"
+                class="form-control"
+                value= "{{$proveedores->noCelularProveedor}}"
+              />
+              <p class="text-primary fst-italic">{{ $errors->first('noCelular') }}</p>
+            </div>
+
+            <div class="mb-3">
+              <label for="correo">Correo:</label>
+              <input
+                id="correo"
+                type="text"
+               
+                name="correo"
+                class="form-control"
+                value= "{{$proveedores->correoProveedor}}"
+              />
+              <p class="text-primary fst-italic">{{ $errors->first('correo') }}</p>
+            </div>
+            
+              <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">
+                      Actualizar Proveedor
+                  </button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              </div>
           </div>
+      </form>
+
+
+
+
+
+      </div>
+      
     </div>
-
-   
-
-@stop
+  </div>
+</div>

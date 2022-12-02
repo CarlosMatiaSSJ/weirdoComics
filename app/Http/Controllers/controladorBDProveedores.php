@@ -81,9 +81,19 @@ class controladorBDProveedores extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(validadorWeirdoProveedores $request, $id)
     {
-        //
+        DB::table('proveedores')->where('idProveedor',$id)->update([
+            "empresaProveedor" => $request->input('empresa'),
+            "direccionProveedor" => $request->input('direccion'),
+            "paisProveedor" => $request->input('pais'),
+            "contactoProveedor" => $request->input('contacto'),
+            "noFijoProveedor" => $request->input('noFijo'),
+            "noCelularProveedor" => $request->input('noCelular'),
+            "correoProveedor" => $request->input('correo')
+
+    ]);
+    return redirect('proveedores/index')->with('actualizacion','abc');
     }
 
     /**
@@ -94,6 +104,7 @@ class controladorBDProveedores extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('proveedores')->where('idProveedor',$id)->delete();
+        return redirect('proveedores/index')->with('eliminacion','abc');
     }
 }

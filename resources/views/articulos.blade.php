@@ -22,6 +22,14 @@
               )</script>" !!}
     @endif
 
+    @if (session()->has('eliminacion'))
+        {!! "<script>Swal.fire(
+                'Correcto!',
+                'Artículo eliminado',
+                'success'
+              )</script>" !!}
+    @endif
+
     {{-- Manejo de errores --}}
 
 
@@ -68,16 +76,21 @@
                         <td>{{ $articulo->cantidadArticulo }} </td>
                         <td>{{ $articulo->precioVentaArticulo }} </td>
                         <td>
-                            <a href="editarArticulo" class="btn btn-warning">Actualizar</a>
-                            <button onclick="borrarArticulo()" class="btn btn-danger"> Borrar </button>
+                            <a href="{{route('editarArticulo', $articulo->idArticulo)}}" class="btn btn-warning">Actualizar</a>
+                                <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarArticulo{{$articulo->idArticulo}}">
+                                 Eliminar
+                             </button>
                         </td>
+                        
                     </tr>
                 </tbody>
+            @include('eliminarArticulo')
             @endforeach
             </font>
         </table>
     </div>
-
+    
 
 
 

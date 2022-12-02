@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\validadorWeirdoAgregarArticulo;
+use App\Http\Requests\validadorWeirdoActualizarArticulo;
+
+
 use Illuminate\Http\Request;
 use DB;
 
@@ -71,8 +74,10 @@ class controladorBDArticulos extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $consultaProveedores = DB::table('proveedores')->get();
+        $consultaID = DB::table('articulos')->where('idArticulo',$id)->first();
+        return view('editarArticulo', compact('consultaID'), compact('consultaProveedores'));
     }
 
     /**
@@ -82,9 +87,21 @@ class controladorBDArticulos extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(validadorWeirdoActualizarArticulo $request, $id)
     {
-        //
+        $pv = 1.4;
+        DB::table('articulos')->where('idArticulo',$id)->update([
+
+            "tipoArticulo" => $request->input('txtTIPO'),
+            "marcaArticulo"=>$request->input('txtMARCA'),
+            "descripcionArticulo"=>$request->input('txtDESCRIPCION'),
+            "cantidadArticulo"=>$request->input('txtCANTIDAD'),
+            "precioCompraArticulo"=>$request->input('txtPRECIOCOMPRA'),
+            "precioVentaArticulo"=>$request->input('txtPRECIOCOMPRA')*$pv,
+            "fechaIngresoArticulo"=>$request->input('txtFECHAINGRESO'),
+            "idProveedor_detalleArticulo"=>$request->input('txtPROVEEDOR')
+        ]);
+        return redirect('artículos/index')->with('actualizacion','abc');
     }
 
     /**
@@ -95,6 +112,7 @@ class controladorBDArticulos extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('articulos')->where('idArticulo',$id)->delete();
+        return redirect('artículos/index')->with('eliminacion','abc');
     }
 }

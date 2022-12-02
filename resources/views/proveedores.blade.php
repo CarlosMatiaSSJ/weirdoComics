@@ -22,6 +22,14 @@
       )</script>" !!}
 @endif
 
+@if (session()->has('eliminacion'))
+{!! "<script>Swal.fire(
+        'Correcto!',
+        'Proveedor eliminado',
+        'success'
+      )</script>" !!}
+@endif
+
     {{-- Manejo de errores --}}
 
 
@@ -72,12 +80,21 @@
               <button class="btn btn-danger"> Ver Productos </button>
             </td>
             <td>
-              <a href="editarProveedor/{{$proveedores->idProveedor}}" class="btn btn-warning">Actualizar</a>
-              <button onclick="borrarProveedor()" class="btn btn-danger"> Borrar </button>
+              <!-- Button trigger modal -->
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarProveedor{{$proveedores->idProveedor}}">
+  Editar
+</button>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminarProveedor{{$proveedores->idProveedor}}">
+  Eliminar
+</button>
             </td>
           </tr>
          
         </tbody>
+        @include('editarProveedor')
+        @include('eliminarProveedor')
        @endforeach
       </font>
     </table>
