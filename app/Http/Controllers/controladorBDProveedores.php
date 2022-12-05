@@ -60,7 +60,11 @@ class controladorBDProveedores extends Controller
      */
     public function show($id)
     {
-        //
+       $consultaProveedor = DB::table('proveedores')->where('idProveedor',$id)->get()->first(); 
+       $consultaComics = DB::table('comics')->where('idProveedor_detalle',$id)->get();
+       $consultaArticulos = DB::table('articulos')->where('idProveedor_detalleArticulo',$id)->get();
+
+        return view('productosProveedor', compact('consultaComics'), compact('consultaArticulos'));
     }
 
     /**

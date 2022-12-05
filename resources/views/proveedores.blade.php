@@ -76,8 +76,10 @@
           <tr>
             <td>{{$proveedores->empresaProveedor}}</td>
             <td>{{$proveedores->contactoProveedor}} </td>
-            <td>
+            <td><form action="{{route('showProveedor',$proveedores->idProveedor)}}">
               <button class="btn btn-danger"> Ver Productos </button>
+            </form>
+              
             </td>
             <td>
               <!-- Button trigger modal -->

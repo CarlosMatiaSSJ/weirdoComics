@@ -4,6 +4,7 @@ use App\Http\Controllers\controladorBDArticulos;
 use App\Http\Controllers\controladorBDComics;
 use App\Http\Controllers\controladorWeirdo;
 use App\Http\Controllers\controladorBDProveedores;
+use App\Http\Controllers\controladorVentas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,7 @@ Route::get('addArt', function () {
 
 Route::get('/', [controladorWeirdo::class, 'showLogin'])->name('apodoLogin');
 Route::get('index', [controladorWeirdo::class, 'showIndex'])->name('index');
-Route::get('pV', [controladorWeirdo::class, 'showPuntoVenta'])->name('apodoPuntoV');
+
 
 Route::get('comics', [controladorWeirdo::class, 'showComics'])->name('apodoComics');
 Route::get('agregarComic', [controladorWeirdo::class, 'showAgregarComic'])->name('apodoAgregarComic');
@@ -60,6 +61,7 @@ Route::get('proveedores/agregar', [controladorBDProveedores::class, 'create'])->
 Route::post('proveedores/create', [controladorBDProveedores::class, 'store'])->name('guardarProveedor');
 Route::PUT('proveedores/update/{id}', [controladorBDProveedores::class, 'update'])->name('updateProveedor');
 Route::DELETE('proveedores/destroy/{id}', [controladorBDProveedores::class, 'destroy'])->name('destroyProveedor');
+Route::get('proveedores/show/{id}', [controladorBDProveedores::class, 'show'])->name('showProveedor');
 
 
 
@@ -80,4 +82,13 @@ Route::post('artículos/create', [controladorBDArticulos::class, 'store'])->name
 Route::get('artículos/editar/{id}', [controladorBDArticulos::class, 'edit'])->name('editarArticulo');
 Route::PUT('artículos/update/{id}', [controladorBDArticulos::class, 'update'])->name('updateArticulo');
 Route::DELETE('artículos/destroy/{id}', [controladorBDArticulos::class, 'destroy'])->name('destroyArticulo');
+
+
+
+//Ventas
+Route::post("/productoDeVenta", [controladorVentas::class, 'agregarProductoVenta'] )->name("agregarProductoVenta");
+Route::get("/cancelarVenta", [controladorVentas::class, 'cancelarVenta'] )->name("cancelarVentas");
+Route::get("pV", [controladorVentas::class, 'index'] )->name("puntoVenta");
+Route::post("/venta", [controladorVentas::class, 'terminarVenta'] )->name("terminarVenta");
+
 
