@@ -5,6 +5,7 @@ use App\Http\Controllers\controladorBDComics;
 use App\Http\Controllers\controladorWeirdo;
 use App\Http\Controllers\controladorBDProveedores;
 use App\Http\Controllers\controladorVentas;
+use App\Http\Controllers\controladorPedidos;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,8 @@ Route::get('editarArticulo', [controladorWeirdo::class, 'showEditarArticulo'])->
 
 Route::get('editarProveedor', [controladorWeirdo::class, 'showEditarProveedor'])->name('apodoEditarProveedor');
 
+
+//Pedidos
 Route::get('pedidos', [controladorWeirdo::class, 'showPedidos'])->name('apodoPedi2');
 Route::get('agregarPedido', [controladorWeirdo::class, 'showAgregarPedido'])->name('apodoAgregarPedido');
 
@@ -62,6 +65,11 @@ Route::post('proveedores/create', [controladorBDProveedores::class, 'store'])->n
 Route::PUT('proveedores/update/{id}', [controladorBDProveedores::class, 'update'])->name('updateProveedor');
 Route::DELETE('proveedores/destroy/{id}', [controladorBDProveedores::class, 'destroy'])->name('destroyProveedor');
 Route::get('proveedores/show/{id}', [controladorBDProveedores::class, 'show'])->name('showProveedor');
+
+//Pedidos
+Route::get('proveedores/agregarPedido/{id}', [controladorPedidos::class, 'index'])->name('agregarPedido');
+Route::post('proveedores/generarPedido', [controladorPedidos::class, 'store'])->name('generarPedido');
+
 
 
 
@@ -90,5 +98,6 @@ Route::post("/productoDeVenta", [controladorVentas::class, 'agregarProductoVenta
 Route::get("/cancelarVenta", [controladorVentas::class, 'cancelarVenta'] )->name("cancelarVentas");
 Route::get("pV", [controladorVentas::class, 'index'] )->name("puntoVenta");
 Route::post("/venta", [controladorVentas::class, 'terminarVenta'] )->name("terminarVenta");
+
 
 

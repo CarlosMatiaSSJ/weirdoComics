@@ -117,6 +117,7 @@
                         </thead>
 
                         <tbody>
+                            
                             @if (session('productos') !== null)
                                 @foreach (session('productos') as $producto)
                                     <tr>
@@ -124,8 +125,22 @@
                                         <td>{{ $producto->nombreComic }}</td>
                                         <td>{{ $producto->precioVentaComic }}</td>
                                     </tr>
+                                    
                                 @endforeach
                             @endif
+
+                            @if(session('productosArticulo')!== null)
+                                @foreach (session('productosArticulo') as $productoArticulo)
+                                <tr>
+                                    <td>{{ $productoArticulo->cantidadArticulo }}</td>
+                                    <td>{{ $productoArticulo->descripcionArticulo }}</td>
+                                    <td>{{ $productoArticulo->precioVentaArticulo }}</td>
+                                </tr>
+                                @endforeach
+                            @endif
+
+                          
+                            
                         </tbody>
                     </table>
                 </div>
@@ -149,13 +164,13 @@
                                     <h6>TOTAL:</h6>
                                 </div>
                                 <div class="container">
-                                    <h6>${{ $total, 2 }}</h6>
+                                    <h6>${{ $total }}</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    @if (session('productos') !== null)
+                    @if (session('productos') !== null or session('productosArticulo') !== null)
                         <div class="form-group mt-3">
 
                             <form action="/venta" method="post">

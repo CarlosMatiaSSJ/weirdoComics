@@ -44,11 +44,7 @@
 <div class="container mt-5">
     <div class="display-3 mt-3 mb-5 text-center " style="color: white"><font face="Comic Sans MS,arial,verdana">Pedidos</div>
 
-      <div class="container-fluid mt-5">
-        <form>
-          <a href="agregarPedido" class="btn btn-light" style="color: rgb(37, 22, 77);"> Agregar Pedido </a>
-        </form>
-      </div>
+      
 
 
 <div class="container">
@@ -63,30 +59,7 @@
         </thead>
     
         <tbody>
-          <tr>
-            <td>Comics Mx</td>
-            <td>Comic de temporada </td>
-            <td> 4422565461</td>
-            <td>
-              <a href="" class="btn btn-primary">TICKET</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Comics Sur</td>
-            <td> Comic de temporada </td>
-            <td> 6546546589 </td>
-            <td>
-              <a href="" class="btn btn-primary">TICKET</a>
-            </td>
-          </tr>
-          <tr>
-            <td> Comics Norte</td>
-            <td> Comic de temporada </td>
-            <td> 6545646545</td>
-            <td>
-              <a href="" class="btn btn-primary">TICKET</a>
-            </td>
-          </tr>
+          
         </tbody>
       </font>
     </table>

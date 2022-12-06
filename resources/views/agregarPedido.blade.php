@@ -3,27 +3,14 @@
     AgregarPedido
 @stop
 @section('contenido')
-    
 
-    
-  
+
+
+
 
 
     {{-- Nav --}}
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index"><img id="icono" src="{{asset('imgs/comic.png')}}"></a>
-          
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index">Menú Principal</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
+  
     {{-- Manejo de errores --}}
 
 
@@ -33,71 +20,53 @@
     <div class="container">
         <div class="col-md-6 offset-md-3">
             <div class="card card-body mt-5">
-              <font face="Comic Sans MS,arial,verdana">
-              <div class="display-3 mt-3 mb-5 text-center">Nuevo Pedido</div>
-              <form action="validarPedido" method="POST">
-                @csrf
-                <div class="container">
-                  <div class="mb-3">
-                    <label for="proveedor">Proveedor:</label>
-                    <input
-                      id="proveedor"
-                      type="text"
-                     
-                      name="txtProveedor"
-                      class="form-control"
-                      value= "{{old('txtProveedor')}}"
-                    />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtProveedor') }}</p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="mercancia">Mercancía:</label>
-                    <input
-                      id="mercancia"
-                      type="text"
-               
-                      name="txtMercancia"
-                      class="form-control"
-                      value= "{{old('txtMercancia')}}"
-                    />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtMercancia') }}</p>
-                  </div>
-                  <div class="mb-3">
-                    <label for="contacto">Contacto:</label>
-                    <input
-                      id="contacto"
-                      type="text"
-                    
-                      name="txtContacto"
-                      class="form-control"
-                      value= "{{old('txtContacto')}}"
-                    />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtContacto') }}</p>
-                  </div>
-                  
-                  <div class="mb-3">
-                    <label for="FechaPedido">Fecha pedido:</label>
-                    <input
-                      id="fechaPedido"
-                      type="date"
-                      value= "{{old('txtFechaP')}}"
-                      name="txtFechaP"
-                      class="form-control"
-                    />
-                    <p class="text-primary fst-italic">{{ $errors->first('txtFechaP') }}</p>
-                  </div>
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary">
-                            Agregar Pedido
-                        </button>
+                <font face="Comic Sans MS,arial,verdana">
+                    <div class="display-3 mt-3 mb-5 text-center">Nuevo Pedido</div>
+                   
+                        <div class="container">
+                            <div class="mb-3">
+                                <label for="proveedor">Proveedor:</label>
+                             
+                                <input id="proveedor" type="text" disabled name="txtProveedor" class="form-control"
+                                    value="{{ $consultaProveedor->empresaProveedor }}" />
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3>Cómics</h3>
+                                    <form action="{{route('generarPedido')}}" method="post">
+                                      @csrf
+                                      @foreach ($consultaComics as $comics)
+                                      <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="" aria-label="" name="txtNombreComic{{$comics->idComic}}" disabled value="{{$comics->nombreComic}}">
+                                        <span class="input-group-text">Cantidad</span>
+                                        <input type="text" class="form-control" placeholder="" aria-label="" required name="txtCantidadComics{{$comics->idComic}}">
+                                      </div>
+                                      @endforeach
+                                      <h3 class="mt-2">Artículos</h3>
+                                      @foreach ($consultaArticulos as $articulos)
+                                      <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="" aria-label="" disabled value="{{$articulos->descripcionArticulo}}">
+                                        <span class="input-group-text">Cantidad</span>
+                                        <input type="text" class="form-control" placeholder="" aria-label="" required name="txtCantidadArticulos">
+                                      </div>
+                                      @endforeach
+                                      <button type="submit" class="btn btn-success">Enviar Pedido</button>
+                                    </form>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>        
                     </div>
-                </div>
-            </form>
-          </font>
+        
+                </font>
             </div>
-          </div>
+        </div>
     </div>
 
-   
+
 
 @endsection

@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Menú Principal</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('agregarPedido',$consultaProveedor->idProveedor) }}">Realizar Pedido</a>
+                    </li>
 
                 </ul>
             </div>
@@ -43,10 +46,7 @@
     {{-- Tabla de comics --}}
 
     <div class="container mt-5">
-        <div class="display-3 mt-3 mb-2 text-center " style="color: white">
-            <font face="Comic Sans MS,arial,verdana">Productos
-        </div>
-        
+       
     
       
         <h3 class="text-light text-center mb-5"> Productos del proveedor</h3>

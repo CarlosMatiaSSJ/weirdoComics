@@ -64,7 +64,12 @@ class controladorBDProveedores extends Controller
        $consultaComics = DB::table('comics')->where('idProveedor_detalle',$id)->get();
        $consultaArticulos = DB::table('articulos')->where('idProveedor_detalleArticulo',$id)->get();
 
-        return view('productosProveedor', compact('consultaComics'), compact('consultaArticulos'));
+
+
+        return view('productosProveedor')
+        ->with(compact('consultaProveedor'))
+        ->with(compact('consultaComics'))
+        ->with(compact('consultaArticulos'));
     }
 
     /**
@@ -110,5 +115,16 @@ class controladorBDProveedores extends Controller
     {
         DB::table('proveedores')->where('idProveedor',$id)->delete();
         return redirect('proveedores/index')->with('eliminacion','abc');
+    }
+
+    public function crearPedido($id)
+    {
+        $consultaArticulos = DB::table('articulos')->where('idProveedor_detalleArticulo',$id)->get();
+        $consultaComics = DB::table('comics')->where('idProveedor_detalle',$id)->get();
+        $consultaProveedor = DB::table('proveedores')->where('idProveedor',$id)->get()->first();
+        return view('agregarPedido')
+        ->with(compact('consultaProveedor'))
+        ->with(compact('consultaArticulos'))
+        ->with(compact('consultaCOmics'));
     }
 }

@@ -4,32 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use Carbon\Carbon;
-use App\venta;
-use App\productoVendido;
 
-
-class controladorVentas extends Controller
+class controladorPedidos extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $total = 0;
-        $totalComic = 0;
-        $totalArticulo = 0;
-        foreach ($this->obtenerProductosComic() as $producto) {
-            $total += $producto->cantidadComic * $producto->precioVentaComic;
-        }
-        foreach ($this->obtenerProductosArticulo() as $productoArticulo) {
-            $total += $productoArticulo->cantidadArticulo * $productoArticulo->precioVentaArticulo;
-        }
-        
-        
-        return view('pVenta',["total"=>$total]);
+    public function index($id)
+    {    
+        $consultaComics = DB::table('comics')->where('idProveedor_detalle',$id)->get();
+        $consultaArticulos = DB::table('articulos')->where('idProveedor_detalleArticulo',$id)->get();
+
+        $consultaProveedor = DB::table('proveedores')->where('idProveedor',$id)->get()->first();
+        return view('agregarPedido')
+        ->with(compact('consultaProveedor'))
+        ->with(compact('consultaComics'))
+        ->with(compact('consultaArticulos'));
     }
 
     /**
@@ -39,7 +31,10 @@ class controladorVentas extends Controller
      */
     public function create()
     {
-        //
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('agregarPedido');
+
+        return $pdf->download('mi-archivo.pdf');
     }
 
     /**
@@ -50,7 +45,7 @@ class controladorVentas extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -61,7 +56,10 @@ class controladorVentas extends Controller
      */
     public function show($id)
     {
-        //
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadHTML('<h1>Styde.net</h1>');
+
+    return $pdf->download('mi-archivo.pdf');
     }
 
     /**
@@ -82,9 +80,9 @@ class controladorVentas extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -97,8 +95,6 @@ class controladorVentas extends Controller
     {
         //
     }
-
-
 
 
 
@@ -315,4 +311,9 @@ class controladorVentas extends Controller
     
 
 }
+
+
+
+
+
 }
