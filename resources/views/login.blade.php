@@ -21,6 +21,14 @@
               )</script>" !!}
     @endif
 
+    @if (session()->has('ingresa'))
+        {!! "<script>Swal.fire(
+                'Ingresa!',
+                'Inicia Sesión para ingresar',
+                'error'
+              )</script>" !!}
+    @endif
+
 
     {{-- Manejo de errores --}}
 

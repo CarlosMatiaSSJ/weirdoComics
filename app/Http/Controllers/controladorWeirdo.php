@@ -27,10 +27,14 @@ class controladorWeirdo extends Controller
 
         if (is_null($validador)){
             return redirect('/')->with('verificar','abc');
+            session()->forget('logueo');
             
         }
         else{
+            session(['logueo' => $validador->tipoUsuario]);
+            
             return redirect('index')->with('confirmacion', 'Información Recibida');
+           
         }
         
     }
@@ -148,6 +152,12 @@ class controladorWeirdo extends Controller
     public function showAgregarArticulo()
     {
         return view('agregarArticulo');
+    }
+
+    public function logout()
+    {
+        session()->forget('logueo');
+        return redirect('/');
     }
 
 }

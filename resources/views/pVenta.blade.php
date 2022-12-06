@@ -44,7 +44,7 @@
         <script>
             Swal.fire(
                 'Error!',
-                'Producto NO ccdd',
+                'Producto sin Stock',
                 'error'
             )
         </script>"

@@ -24,12 +24,18 @@ Route::get('addArt', function () {
     return view('agregarArt');
 });
 */
-
-Route::post('validarLogin', [controladorWeirdo::class, 'confirmarFormulario']);
-
-
 Route::get('/', [controladorWeirdo::class, 'showLogin'])->name('apodoLogin');
+Route::post('validarLogin', [controladorWeirdo::class, 'confirmarFormulario']);
+Route::get('logout', [controladorWeirdo::class, 'logout'])->name('logout');
+
+
+
+    
+
+
+
 Route::get('index', [controladorWeirdo::class, 'showIndex'])->name('index');
+
 
 
 Route::get('comics', [controladorWeirdo::class, 'showComics'])->name('apodoComics');
@@ -72,7 +78,7 @@ Route::get('proveedores/show/{id}', [controladorBDProveedores::class, 'show'])->
 
 //Pedidos
 Route::get('proveedores/agregarPedido/{id}', [controladorPedidos::class, 'index'])->name('agregarPedido');
-Route::post('proveedores/generarPedido', [controladorPedidos::class, 'store'])->name('generarPedido');
+Route::post('proveedores/generarPedido/{id}', [controladorPedidos::class, 'store'])->name('generarPedido');
 
 
 
@@ -102,6 +108,7 @@ Route::post("/productoDeVenta", [controladorVentas::class, 'agregarProductoVenta
 Route::get("/cancelarVenta", [controladorVentas::class, 'cancelarVenta'] )->name("cancelarVentas");
 Route::get("pV", [controladorVentas::class, 'index'] )->name("puntoVenta");
 Route::post("/venta", [controladorVentas::class, 'terminarVenta'] )->name("terminarVenta");
+Route::get("venta/ticket", [controladorVentas::class, 'imprimir'] )->name("imprimir");
 
 
 //Usuarios
@@ -109,3 +116,4 @@ Route::get('usuarios/index', [controladorUsuarios::class, 'index'])->name('usuar
 route::delete('usuarios/destroy/{id}',[controladorUsuarios::class,'destroy'])->name('destroyUsuario');
 Route::PUT('usuarios/update/{id}', [controladorUsuarios::class, 'update'])->name('updateUsuario');
 Route::post('usuarios/store', [controladorUsuarios::class, 'store'])->name('storeUsuario');
+

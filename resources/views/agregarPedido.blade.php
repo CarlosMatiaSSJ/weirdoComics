@@ -34,7 +34,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h3>Cómics</h3>
-                                    <form action="{{route('generarPedido')}}" method="post">
+                                    <form action="{{route('generarPedido', $consultaProveedor->idProveedor)}}" method="post">
                                       @csrf
                                       @foreach ($consultaComics as $comics)
                                       <div class="input-group mb-3">

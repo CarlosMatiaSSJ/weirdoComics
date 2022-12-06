@@ -18,6 +18,7 @@ class controladorVentas extends Controller
      */
     public function index()
     {
+        session()->forget('totalVenta');
         $total = 0;
         $totalComic = 0;
         $totalArticulo = 0;
@@ -27,8 +28,8 @@ class controladorVentas extends Controller
         foreach ($this->obtenerProductosArticulo() as $productoArticulo) {
             $total += $productoArticulo->cantidadArticulo * $productoArticulo->precioVentaArticulo;
         }
-        
-        
+       
+        session(["totalVenta" => $total]);
         return view('pVenta',["total"=>$total]);
     }
 
@@ -108,8 +109,6 @@ class controladorVentas extends Controller
         $producto = DB::table('comics')->where('nombreComic','like','%'.$name.'%')->get()->first();
         if (!$producto) {
             $productoArticulo = DB::table('articulos')->where('descripcionArticulo','like','%'.$name.'%')->get()->first();
-            $this->agregarProductoACarritoArticulo($productoArticulo);
-            return redirect()->route("puntoVenta");
             if (!$producto and !$productoArticulo) {
                 return redirect('pV')->with('notFound','abc');
             }
@@ -156,7 +155,7 @@ class controladorVentas extends Controller
     private function agregarProductoACarritoArticulo($productoArticulo)
     {
         if ($productoArticulo->cantidadArticulo <= 0) {
-            return redirect()->route("vender.index")
+            return redirect()->route("puntoVenta")
                 ->with([
                     "mensaje" => "No hay existencias del producto",
                     "tipo" => "danger"
@@ -308,11 +307,28 @@ class controladorVentas extends Controller
                 ]);
 
         }
+       
         $this->vaciarProductos();
-        return redirect('pV')->with('ventaTerminada','abc');
+        return redirect()->route('imprimir');
     }
 
     
 
 }
+
+
+public function imprimir(){
+    
+    $lastestId = DB::table('ventas')->latest()->first()->id;
+    $today = Carbon::now()->format('d/m/Y');
+
+    $consultaVenta = DB::table('productos_vendidos')->where('id_venta', $lastestId)->get();
+
+    $pdf = \PDF::loadView('ticketVenta', compact('consultaVenta'));
+    return $pdf->download('Ticket.pdf') ; 
+    return redirect('pV')->with('ventaTerminada','abc');
+
+  }
+
+
 }
