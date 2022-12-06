@@ -13,6 +13,14 @@
               )</script>" !!}
     @endif
 
+    @if (session()->has('verificar'))
+        {!! "<script>Swal.fire(
+                'Incorrecto!',
+                'Verifica tus datos',
+                'error'
+              )</script>" !!}
+    @endif
+
 
     {{-- Manejo de errores --}}
 

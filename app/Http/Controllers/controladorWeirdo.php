@@ -16,6 +16,26 @@ use DB;
 
 class controladorWeirdo extends Controller
 {
+
+    public function confirmarFormulario(validadorWeirdo $request)
+    {
+        $validador = DB::table('usuarios')
+        ->where('user', $request->input('txtUsuario'))
+        ->where('password',$request->input('txtContraseña'))
+        ->GET()
+        ->first();
+
+        if (is_null($validador)){
+            return redirect('/')->with('verificar','abc');
+            
+        }
+        else{
+            return redirect('index')->with('confirmacion', 'Información Recibida');
+        }
+        
+    }
+
+
     public function confirmarProveedor(validadorWeirdoProveedores $req)
     {
         return redirect('proveedores')->with('confirmacion', 'Información Recibida');
@@ -25,10 +45,7 @@ class controladorWeirdo extends Controller
         return redirect('proveedores')->with('actualizacion', 'comic Recibido');
     }
 
-    public function confirmarFormulario(validadorWeirdo $req)
-    {
-        return redirect('index')->with('confirmacion', 'Información Recibida');
-    }
+   
 
     public function confirmarComic(validadorWeirdoAgregarComic $req)
     {

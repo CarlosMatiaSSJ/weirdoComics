@@ -5,6 +5,13 @@
 @stop
 
 @section('contenido')
+@if (session()->has('confirmacion'))
+        {!! "<script>Swal.fire(
+                'Correcto!',
+                'Bienvenido',
+                'success'
+              )</script>" !!}
+    @endif
 
 
     {{-- Manejo de errores --}}
@@ -57,10 +64,10 @@
                     </button>
                 </div>
             </form>
-            <form action="pedidos">
+            <form action="{{route('usuarios')}}">
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary mb-3">
-                        Pedidos
+                        Usuarios
                     </button>
                 </div>
             </form>

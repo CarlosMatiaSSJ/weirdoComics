@@ -6,6 +6,7 @@ use App\Http\Controllers\controladorWeirdo;
 use App\Http\Controllers\controladorBDProveedores;
 use App\Http\Controllers\controladorVentas;
 use App\Http\Controllers\controladorPedidos;
+use App\Http\Controllers\controladorUsuarios;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,9 @@ Route::get('addArt', function () {
     return view('agregarArt');
 });
 */
+
+Route::post('validarLogin', [controladorWeirdo::class, 'confirmarFormulario']);
+
 
 Route::get('/', [controladorWeirdo::class, 'showLogin'])->name('apodoLogin');
 Route::get('index', [controladorWeirdo::class, 'showIndex'])->name('index');
@@ -100,4 +104,8 @@ Route::get("pV", [controladorVentas::class, 'index'] )->name("puntoVenta");
 Route::post("/venta", [controladorVentas::class, 'terminarVenta'] )->name("terminarVenta");
 
 
-
+//Usuarios
+Route::get('usuarios/index', [controladorUsuarios::class, 'index'])->name('usuarios');
+route::delete('usuarios/destroy/{id}',[controladorUsuarios::class,'destroy'])->name('destroyUsuario');
+Route::PUT('usuarios/update/{id}', [controladorUsuarios::class, 'update'])->name('updateUsuario');
+Route::post('usuarios/store', [controladorUsuarios::class, 'store'])->name('storeUsuario');
