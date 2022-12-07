@@ -45,7 +45,7 @@ class controladorPedidos extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('comics')->where('idComic',$$request->id)
+        DB::table('comics')->where('idComic',$$request->id);
     }
 
     /**

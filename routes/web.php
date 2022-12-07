@@ -109,6 +109,7 @@ Route::get("/cancelarVenta", [controladorVentas::class, 'cancelarVenta'] )->name
 Route::get("pV", [controladorVentas::class, 'index'] )->name("puntoVenta");
 Route::post("/venta", [controladorVentas::class, 'terminarVenta'] )->name("terminarVenta");
 Route::get("venta/ticket", [controladorVentas::class, 'imprimir'] )->name("imprimir");
+Route::get("venta/registro", [controladorVentas::class, 'show'] )->name("registroVentas");
 
 
 //Usuarios

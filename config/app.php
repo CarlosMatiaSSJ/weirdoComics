@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
-
+    'PDF' => Barryvdh\DomPDF\Facade::class,
     /*
     |--------------------------------------------------------------------------
     | Application Name

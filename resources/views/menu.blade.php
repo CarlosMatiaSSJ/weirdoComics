@@ -92,6 +92,15 @@
 
                    
                @else
+               <form action="{{route('registroVentas')}}">
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary mb-3">
+                        Ventas
+                    </button>
+                </div>
+            </form>
+
+
                <form action="inventario">
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-primary mb-3">

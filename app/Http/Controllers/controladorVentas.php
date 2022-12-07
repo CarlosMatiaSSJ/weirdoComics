@@ -7,7 +7,7 @@ use DB;
 use Carbon\Carbon;
 use App\venta;
 use App\productoVendido;
-
+use PDF;
 
 class controladorVentas extends Controller
 {
@@ -60,9 +60,9 @@ class controladorVentas extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        
     }
 
     /**
@@ -264,6 +264,8 @@ class controladorVentas extends Controller
         // Recorrer carrito de compras Comic
         foreach ($productos as $producto) {
             // El producto que se vende...
+
+
             $productoVendido = new productoVendido();
             $productoVendido->fill([
                 "id_venta" =>  $latestId,
@@ -283,7 +285,7 @@ class controladorVentas extends Controller
                 "cantidadComic" => $nuevaCantidad->cantidadComic
             ]);
 
-
+             }
             //Recorrer el carrito de compras articulos
             foreach ($productosArticulo as $productoArticulo) {
                 // El producto que se vende...
@@ -306,29 +308,33 @@ class controladorVentas extends Controller
                     "cantidadArticulo" => $nuevaCantidadArticulo->cantidadArticulo
                 ]);
 
-        }
+        }   
+        
+        
+       
        
         $this->vaciarProductos();
-        return redirect()->route('imprimir');
-    }
-
-    
+        $this->imprimir();
+        return redirect()->route('imprimir')->with('ventaTerminada','abc');
 
 }
 
 
-public function imprimir(){
+    public function imprimir()
+        {       
     
-    $lastestId = DB::table('ventas')->latest()->first()->id;
-    $today = Carbon::now()->format('d/m/Y');
+            $lastestId = DB::table('ventas')->latest()->first()->id;
+            $consultaVenta = DB::table('productos_vendidos')->where('id_venta', $lastestId)->get();
+            return PDF::loadView('ticketVenta', compact('consultaVenta'))
+            ->download('ticket.pdf');
+            return redirect('pV') ;
+            
+            
+            
+        }
+ 
 
-    $consultaVenta = DB::table('productos_vendidos')->where('id_venta', $lastestId)->get();
 
-    $pdf = \PDF::loadView('ticketVenta', compact('consultaVenta'));
-    return $pdf->download('Ticket.pdf') ; 
-    return redirect('pV')->with('ventaTerminada','abc');
-
-  }
 
 
 }
