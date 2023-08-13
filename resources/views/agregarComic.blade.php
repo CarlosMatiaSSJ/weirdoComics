@@ -33,7 +33,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card card-body mt-5">
                 <font face="Comic Sans MS,arial,verdana">
-                    <div class="display-3 mt-3 mb-5 text-center">Nuevo Cómic</div>
+                    <div class="display-3 mt-3 mb-5 text-center">Nuevo Producto Truper</div>
                     <form action="{{route('guardarComic')}}" method="POST">
                         @csrf
                         <div class="container">
@@ -44,13 +44,13 @@
                                 <p class="text-primary fst-italic">{{ $errors->first('txtNOMBRE') }}</p>
                             </div>
                             <div class="mb-3">
-                                <label for="edicion">Edición:</label>
+                                <label for="edicion">ID:</label>
                                 <input id="edicion" type="text" name="txtEDICION" class="form-control"
                                     value="{{ old('txtEDICION') }}" />
                                 <p class="text-primary fst-italic">{{ $errors->first('txtEDICION') }}</p>
                             </div>
                             <div class="mb-3">
-                                <label for="compañia">Compañía:</label>
+                                <label for="compañia">Línea:</label>
                                 <input id="compañia" type="text" name="txtCOMPAÑIA" class="form-control"
                                     value="{{ old('txtCOMPAÑIA') }}" />
                                 <p class="text-primary fst-italic">{{ $errors->first('txtCOMPAÑIA') }}</p>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary">
-                                    Agregar Cómic
+                                    Agregar Producto
                                 </button>
                             </div>
                         </div>

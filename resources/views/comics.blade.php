@@ -44,7 +44,7 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('index') }}">Menú Principal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('agregarComic') }}">Agregar Comic</a>
+                        <a class="nav-link" href="{{ route('agregarComic') }}">Agregar Producto</a>
                     </li>
                 </ul>
             </div>
@@ -55,14 +55,14 @@
 
 
     <div class="display-3 mb-5 text-center mt-5" style="color: white">
-        <font face="Comic Sans MS,arial,verdana">Inventario Comics
+        <font face="Comic Sans MS,arial,verdana">Inventario Truper
     </div>
 
     <div class="container">
         <table class="table table-success table-striped mt-3">
             <thead>
                 <tr>
-                    <td>Comic:</td>
+                    <td>Producto:</td>
                     <td>Existencia:</td>
                     <td>Precio de Venta:</td>
                     <td>Acción:</td>

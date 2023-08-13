@@ -3,6 +3,15 @@
     AgregarPedido
 @stop
 @section('contenido')
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 
 
@@ -38,17 +47,17 @@
                                       @csrf
                                       @foreach ($consultaComics as $comics)
                                       <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="" aria-label="" name="txtNombreComic{{$comics->idComic}}" disabled value="{{$comics->nombreComic}}">
+                                        <input type="text" class="form-control" placeholder="" aria-label="" name="txtNombreComic" readonly value="{{$comics->nombreComic}}">
                                         <span class="input-group-text">Cantidad</span>
-                                        <input type="text" class="form-control" placeholder="" aria-label="" required name="txtCantidadComics{{$comics->idComic}}">
+                                        <input type="number" class="form-control" placeholder="" aria-label=""  name="txtCantidadComics">
                                       </div>
                                       @endforeach
                                       <h3 class="mt-2">Artículos</h3>
                                       @foreach ($consultaArticulos as $articulos)
                                       <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="" aria-label="" disabled value="{{$articulos->descripcionArticulo}}">
+                                        <input type="text" class="form-control" placeholder="" aria-label="" name="txtNombreArtículo" readonly value="{{$articulos->descripcionArticulo}}">
                                         <span class="input-group-text">Cantidad</span>
-                                        <input type="text" class="form-control" placeholder="" aria-label="" required name="txtCantidadArticulos">
+                                        <input type="number" class="form-control" placeholder="" aria-label=""  name="txtCantidadArticulos">
                                       </div>
                                       @endforeach
                                       <button type="submit" class="btn btn-success">Enviar Pedido</button>

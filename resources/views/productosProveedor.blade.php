@@ -64,11 +64,11 @@
                     <div class="container text-center">
                         <div class="row">
                             <div class="col">
-                                Cómics
+                                Productos Truper
                                 <table class="table table-success table-striped mt-3">
                                     <thead>
                                         <tr>
-                                            <td>Comic:</td>
+                                            <td>Producto:</td>
                                             <td>Existencia:</td>
                                             <td>Precio de Venta:</td>
                                         </tr>

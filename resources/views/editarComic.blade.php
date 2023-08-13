@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar Cómic</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar Producto Truper</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -26,7 +26,7 @@
               <p class="text-primary fst-italic">{{ $errors->first('txtNOMBRE') }}</p>
             </div>
             <div class="mb-3">
-              <label for="edicion">Edición:</label>
+              <label for="edicion">ID:</label>
               <input
                 id="edicion"
                 type="text"
@@ -38,7 +38,7 @@
               <p class="text-primary fst-italic">{{ $errors->first('txtEDICION') }}</p>
             </div>
             <div class="mb-3">
-              <label for="compañia">Compañía:</label>
+              <label for="compañia">Línea:</label>
               <input
                 id="compañia"
                 type="text"

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 use DB;
@@ -44,9 +45,36 @@ class controladorPedidos extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        DB::table('comics')->where('idComic',$$request->id);
-    }
+{
+ 
+
+    // Uso de transacciones
+    DB::transaction(function () use ($request) {
+        if ($request->has('txtNombreComic')) {
+            $comic = DB::table('comics')->where('nombreComic', $request->input('txtNombreComic'))->first();
+            
+            if ($comic) {
+                $nuevaCantidadComic = $comic->cantidadComic + $request->txtCantidadComics;
+                DB::table('comics')->where('nombreComic', $request->input('txtNombreComic'))->update([
+                    'cantidadComic' => $nuevaCantidadComic
+                ]);
+            }
+        }
+
+        if ($request->has('txtNombreArticulo')) {
+            $articulo = DB::table('articulos')->where('descripcionArticulo', $request->input('txtNombreArticulo'))->first();
+          
+            if ($articulo) {
+                $nuevaCantidadArticulo = $articulo->cantidadArticulo + $request->txtCantidadArticulos;
+                DB::table('articulos')->where('descripcionArticulo', $request->input('txtNombreArticulo'))->update([
+                    'cantidadArticulo' => $nuevaCantidadArticulo
+                ]);
+            }
+        }
+    });
+
+    return redirect('index')->with('pedidoAgregado', 'pedidoAgregado');
+}
 
     /**
      * Display the specified resource.

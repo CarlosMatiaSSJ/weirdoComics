@@ -12,6 +12,13 @@
                 'success'
               )</script>" !!}
     @endif
+    @if (session()->has('pedidoAgregado'))
+        {!! "<script>Swal.fire(
+                'Correcto!',
+                'Se ha agregado el pedido!',
+                'success'
+              )</script>" !!}
+    @endif
 
 
     {{-- Manejo de errores --}}
@@ -52,7 +59,7 @@
         <form action="{{route('comics')}}">
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary mb-3">
-                    Comics
+                    TRUPER
                 </button>
             </div>
         </form>

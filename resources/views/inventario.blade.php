@@ -46,7 +46,7 @@
         <div class="display-3 mt-3 mb-2 text-center " style="color: white">
             <font face="Comic Sans MS,arial,verdana">Inventario
         </div>
-        <h3 class="text-light text-center mb-5"> Cómics & Artículos</h3>
+        <h3 class="text-light text-center mb-5"> Productos Truper & Artículos</h3>
 
 
         {{-- Barra búsqueda --}}
@@ -63,11 +63,11 @@
                     <div class="container text-center">
                         <div class="row">
                             <div class="col">
-                                Cómics
+                                Productos Truper
                                 <table class="table table-success table-striped mt-3">
                                     <thead>
                                         <tr>
-                                            <td>Comic:</td>
+                                            <td>Truper:</td>
                                             <td>Existencia:</td>
                                             <td>Precio de Venta:</td>
                                         </tr>
